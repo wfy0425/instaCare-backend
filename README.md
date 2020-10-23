@@ -1,2 +1,2 @@
-# CareGo-back-end
-The back-end of CareGo
+# instaCare-back-end
+The back-end of instaCare
