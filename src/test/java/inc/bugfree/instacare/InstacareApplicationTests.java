@@ -1,10 +1,10 @@
-package inc.bugfree.carego;
+package inc.bugfree.instacare;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class CaregoApplicationTests {
+class InstacareApplicationTests {
 
     @Test
     void contextLoads() {

@@ -1,13 +1,13 @@
-package inc.bugfree.carego;
+package inc.bugfree.instacare;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class CaregoApplication {
+public class InstacareApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(CaregoApplication.class, args);
+        SpringApplication.run(InstacareApplication.class, args);
     }
 
 }

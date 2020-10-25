@@ -1,4 +1,4 @@
-package inc.bugfree.carego.util;
+package inc.bugfree.instacare.util;
 
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;

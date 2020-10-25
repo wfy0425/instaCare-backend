@@ -1,4 +1,4 @@
-package inc.bugfree.carego.bean;
+package inc.bugfree.instacare.bean;
 
 public class UserBean {
 

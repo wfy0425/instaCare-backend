@@ -1,4 +1,4 @@
-package inc.bugfree.carego.exception;
+package inc.bugfree.instacare.exception;
 
 public class CommonJsonException extends RuntimeException {
     private static final long serialVersionUID = 2L;
