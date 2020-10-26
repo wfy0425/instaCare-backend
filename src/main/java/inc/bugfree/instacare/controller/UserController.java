@@ -4,16 +4,23 @@ import inc.bugfree.instacare.bean.ResponseBean;
 //import inc.bugfree.instacare.service.UserService;
 
 
+import inc.bugfree.instacare.bean.UserBean;
+import inc.bugfree.instacare.dao.UserDao;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 
 @RestController
 @RequestMapping("/users")
 public class UserController {
+
+    @Autowired
+    private UserDao userDao;
 
     private static final Logger LOGGER = LogManager.getLogger(UserController.class);
 
@@ -30,5 +37,11 @@ public class UserController {
         //use responseBean to warp the response
         return new ResponseBean(200, "OK", null);
 //        return null;
+    }
+
+    @GetMapping("/getAll")
+    @ResponseBody
+    public List<UserBean> getAllEmp() throws Exception {
+        return userDao.findAll();
     }
 }

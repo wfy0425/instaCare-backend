@@ -12,4 +12,10 @@ public class UserBean {
         this.id = id;
     }
 
+    @Override
+    public String toString() {
+        return "UserBean{" +
+                "id=" + id +
+                '}';
+    }
 }
