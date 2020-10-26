@@ -8,6 +8,7 @@ import com.google.cloud.firestore.QuerySnapshot;
 import inc.bugfree.instacare.bean.UserBean;
 import inc.bugfree.instacare.dao.UserDao;
 import inc.bugfree.instacare.service.FirebaseService;
+import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -24,8 +25,8 @@ public class UserDaoImpl implements UserDao {
         List<UserBean> userList = new ArrayList<UserBean>();
         Firestore firestore = db.getFirestore();
         CollectionReference employee = firestore.collection("users");
-        ApiFuture<QuerySnapshot> future = employee.get();
-        for (QueryDocumentSnapshot document : future.get().getDocuments()) {
+        ApiFuture<QuerySnapshot> apiFuture = employee.get();
+        for (QueryDocumentSnapshot document : apiFuture.get().getDocuments()) {
             UserBean user = document.toObject(UserBean.class);
             userList.add(user);
         }
