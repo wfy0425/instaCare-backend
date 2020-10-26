@@ -20,7 +20,7 @@ public class UserBean {
     private Integer userType;
     private String email;
     private String password;
-    private String avater;
+    private String avatar;
     private Integer rating;
     private List<Integer> requestList;
     private String description;
