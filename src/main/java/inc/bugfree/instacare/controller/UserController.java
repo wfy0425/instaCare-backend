@@ -41,7 +41,7 @@ public class UserController {
 
     @GetMapping("/getAll")
     @ResponseBody
-    public List<UserBean> getAllEmp() throws Exception {
+    public List<UserBean> getAllUser() throws Exception {
         return userDao.findAll();
     }
 }
