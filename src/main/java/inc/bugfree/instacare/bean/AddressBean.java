@@ -93,7 +93,6 @@ public class AddressBean {
     }
 
     @PropertyName("default")
-    0
     public void setDefault(Boolean aDefault) {
         isDefault = aDefault;
     }
