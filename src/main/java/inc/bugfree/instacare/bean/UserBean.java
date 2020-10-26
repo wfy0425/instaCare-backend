@@ -80,12 +80,12 @@ public class UserBean {
         this.password = password;
     }
 
-    public String getAvater() {
-        return avater;
+    public String getAvatar() {
+        return avatar;
     }
 
-    public void setAvater(String avater) {
-        this.avater = avater;
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
     }
 
     public Integer getRating() {
@@ -161,7 +161,7 @@ public class UserBean {
                 ", userType=" + userType +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
-                ", avater='" + avater + '\'' +
+                ", avatar='" + avatar + '\'' +
                 ", rating=" + rating +
                 ", requestList=" + requestList +
                 ", description='" + description + '\'' +
