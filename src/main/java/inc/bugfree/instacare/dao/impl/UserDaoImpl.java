@@ -24,8 +24,8 @@ public class UserDaoImpl implements UserDao {
     public List<UserBean> findAll() throws Exception {
         List<UserBean> userList = new ArrayList<UserBean>();
         Firestore firestore = db.getFirestore();
-        CollectionReference employee = firestore.collection("users");
-        ApiFuture<QuerySnapshot> apiFuture = employee.get();
+        CollectionReference users = firestore.collection("users");
+        ApiFuture<QuerySnapshot> apiFuture = users.get();
         for (QueryDocumentSnapshot document : apiFuture.get().getDocuments()) {
             UserBean user = document.toObject(UserBean.class);
             userList.add(user);
@@ -37,6 +37,4 @@ public class UserDaoImpl implements UserDao {
     public List<UserBean> getByCourse(String department, String courseCode) {
         return null;
     }
-
-
 }
