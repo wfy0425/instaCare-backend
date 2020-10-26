@@ -2,7 +2,7 @@ package inc.bugfree.instacare.bean;
 
 import com.google.cloud.firestore.annotation.PropertyName;
 
-public class Tags {
+public class TagsBean {
 
     private Integer id;
     private String tagContent;

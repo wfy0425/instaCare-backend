@@ -1,6 +1,6 @@
 package inc.bugfree.instacare.bean;
 
-public class Comments {
+public class CommentsBean {
     private Integer id;
     private String content;
 

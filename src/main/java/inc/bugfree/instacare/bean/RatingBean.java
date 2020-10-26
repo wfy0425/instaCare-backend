@@ -2,7 +2,7 @@ package inc.bugfree.instacare.bean;
 
 import com.google.cloud.firestore.annotation.PropertyName;
 
-public class Rating {
+public class RatingBean {
     private Integer id;
     private Integer userRating;
     private String userComment;
