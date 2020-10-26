@@ -48,18 +48,22 @@ public class UserBean {
         this.fullName = fullName;
     }
 
+    @PropertyName("created_at")
     public Date getCreatedAt() {
         return createdAt;
     }
 
+    @PropertyName("created_at")
     public void setCreatedAt(Date createdAt) {
         this.createdAt = createdAt;
     }
 
+    @PropertyName("usertype")
     public Integer getUserType() {
         return userType;
     }
 
+    @PropertyName("usertype")
     public void setUserType(Integer userType) {
         this.userType = userType;
     }
@@ -96,10 +100,12 @@ public class UserBean {
         this.rating = rating;
     }
 
+    @PropertyName("request_list")
     public List<Integer> getRequestList() {
         return requestList;
     }
 
+    @PropertyName("request_list")
     public void setRequestList(List<Integer> requestList) {
         this.requestList = requestList;
     }
@@ -120,26 +126,32 @@ public class UserBean {
         this.phone = phone;
     }
 
+    @PropertyName("address_list")
     public List<String> getAddressList() {
         return addressList;
     }
 
+    @PropertyName("address_list")
     public void setAddressList(List<String> addressList) {
         this.addressList = addressList;
     }
 
+    @PropertyName("accumulative_rating")
     public Integer getAccumulativeRating() {
         return accumulativeRating;
     }
 
+    @PropertyName("accumulative_rating")
     public void setAccumulativeRating(Integer accumulativeRating) {
         this.accumulativeRating = accumulativeRating;
     }
 
+    @PropertyName("num_of_rating")
     public Integer getNumOfRating() {
         return numOfRating;
     }
 
+    @PropertyName("num_of_rating")
     public void setNumOfRating(Integer numOfRating) {
         this.numOfRating = numOfRating;
     }
