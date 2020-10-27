@@ -34,6 +34,11 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
+    public UserBean findByUsername(String username) {
+        return null;
+    }
+
+    @Override
     public List<UserBean> getByCourse(String department, String courseCode) {
         return null;
     }

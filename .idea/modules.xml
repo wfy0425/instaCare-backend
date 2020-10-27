@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/carego.iml" filepath="$PROJECT_DIR$/carego.iml" />
       <module fileurl="file://$PROJECT_DIR$/instacare.iml" filepath="$PROJECT_DIR$/instacare.iml" />
     </modules>
   </component>

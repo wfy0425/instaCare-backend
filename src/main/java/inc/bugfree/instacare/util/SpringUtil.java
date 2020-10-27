@@ -1,9 +1,11 @@
 package inc.bugfree.instacare.util;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
+import org.springframework.util.DigestUtils;
 
 @Component
 public class SpringUtil implements ApplicationContextAware {
@@ -38,6 +40,13 @@ public class SpringUtil implements ApplicationContextAware {
     //通过name,以及Clazz返回指定的Bean
     public static <T> T getBean(String name, Class<T> clazz) {
         return getApplicationContext().getBean(name, clazz);
+    }
+
+    public static String md5(String key) {
+        if (StringUtils.isBlank(key)) {
+            return null;
+        }
+        return DigestUtils.md5DigestAsHex(key.getBytes());
     }
 
 }
