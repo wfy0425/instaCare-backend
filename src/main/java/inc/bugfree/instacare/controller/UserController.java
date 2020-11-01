@@ -45,7 +45,7 @@ public class UserController {
         return userDao.findAll();
     }
 
-    @PostMapping("/save")
+    @PostMapping("/api/save")
     public void saveUserType(@RequestBody UserBean user) {
         userDao.saveUserType(user);
     }
