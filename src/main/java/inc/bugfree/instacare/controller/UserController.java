@@ -46,7 +46,7 @@ public class UserController {
     }
 
     @PostMapping("/save")
-    public void saveUser(@RequestBody UserBean user) {
+    public void saveUserType(@RequestBody UserBean user) {
         userDao.saveUserType(user);
     }
 }
