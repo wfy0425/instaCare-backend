@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/users")
 public class UserController {
@@ -43,5 +43,10 @@ public class UserController {
     @ResponseBody
     public List<UserBean> getAllUser() throws Exception {
         return userDao.findAll();
+    }
+
+    @PostMapping("/save")
+    public void saveUser(@RequestBody UserBean user) {
+        userDao.saveUserType(user);
     }
 }

@@ -12,4 +12,6 @@ public interface UserDao {
     List<UserBean> getByCourse(String department, String courseCode);
 
     List<UserBean> findAll() throws Exception;
+
+    void saveUserType(UserBean user);
 }
