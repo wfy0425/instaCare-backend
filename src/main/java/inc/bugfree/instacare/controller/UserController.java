@@ -41,10 +41,16 @@ public class UserController {
 //        return null;
     }
 
+//    @GetMapping("/getAll")
+//    @ResponseBody
+//    public List<UserBean> getAllUser() throws Exception {
+//        return userDao.findAll();
+//    }
+
     @GetMapping("/getAll")
     @ResponseBody
     public List<UserBean> getAllUser() throws Exception {
-        return userDao.findAll();
+        return userService.getAll();
     }
 
     @GetMapping("/{id}")
@@ -54,8 +60,15 @@ public class UserController {
         return new ResponseBean(200, "OK", ans);
     }
 
-    @PostMapping("/api/save")
-    public void saveUserType(@RequestBody UserBean user) {
-        userDao.saveUserType(user);
+    @PostMapping("/{id}")
+    @ResponseBody
+    public ResponseBean addUser(@PathVariable String id, @RequestParam(value = "userType") int userType ) throws Exception {
+        String ans = userService.addUser(id,userType);
+        return new ResponseBean(200, "OK", ans);
     }
+//
+//    @PostMapping("/api/save")
+//    public void saveUserType(@RequestBody UserBean user) {
+//        userDao.saveUserType(user);
+//    }
 }

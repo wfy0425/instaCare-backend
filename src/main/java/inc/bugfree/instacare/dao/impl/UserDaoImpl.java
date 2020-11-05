@@ -17,11 +17,14 @@ import java.util.concurrent.ExecutionException;
 @Component
 public class UserDaoImpl implements UserDao {
 
-    @Autowired
-    private FirebaseService db;
+    private final FirebaseService db;
+
+    public UserDaoImpl(FirebaseService db) {
+        this.db = db;
+    }
 
     @Override
-    public List<UserBean> findAll() throws Exception {
+    public List<UserBean> getAll() throws Exception {
         List<UserBean> userList = new ArrayList<UserBean>();
         Firestore firestore = db.getFirestore();
         CollectionReference users = firestore.collection("users");
@@ -58,5 +61,14 @@ public class UserDaoImpl implements UserDao {
         }else {
             return null;
         }
+    }
+
+    //TODO: add check existing user
+    @Override
+    public String addUser(UserBean userBean) throws ExecutionException, InterruptedException {
+        Firestore dbFirestore = db.getFirestore();
+        DocumentReference docRef = dbFirestore.collection("users").document(userBean.getId());
+        ApiFuture<WriteResult> result = docRef.set(userBean);
+        return result.get().getUpdateTime().toString();
     }
 }

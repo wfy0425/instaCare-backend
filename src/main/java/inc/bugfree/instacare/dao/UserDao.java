@@ -9,9 +9,9 @@ import java.util.concurrent.ExecutionException;
 
 @Repository
 public interface UserDao {
-    List<UserBean> findAll() throws Exception;
+    List<UserBean> getAll() throws Exception;
     void saveUserType(UserBean user);
 
     UserBean getUserById(String id) throws InterruptedException, ExecutionException;
-
+    String addUser(UserBean userBean) throws InterruptedException, ExecutionException;
 }
