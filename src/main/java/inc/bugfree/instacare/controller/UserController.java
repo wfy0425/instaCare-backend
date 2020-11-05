@@ -62,8 +62,8 @@ public class UserController {
 
     @PostMapping("/{id}")
     @ResponseBody
-    public ResponseBean addUser(@PathVariable String id, @RequestParam(value = "userType") int userType ) throws Exception {
-        String ans = userService.addUser(id,userType);
+    public ResponseBean addUser(@PathVariable String id, @RequestBody UserBean user ) throws Exception {
+        String ans = userService.addUser(id,user);
         return new ResponseBean(200, "OK", ans);
     }
 //

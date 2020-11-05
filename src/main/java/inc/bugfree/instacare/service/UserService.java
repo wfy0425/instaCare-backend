@@ -31,11 +31,11 @@ public class UserService {
         return userDao.getUserById(id);
     }
 
-    public String addUser(String uid, int userType) throws ExecutionException, InterruptedException {
-        UserBean userBean = new UserBean();
-        userBean.setId(uid);
-        userBean.setUserType(userType);
-        return userDao.addUser(userBean);
+    public String addUser(String uid, UserBean user) throws ExecutionException, InterruptedException {
+//        UserBean userBean = new UserBean();
+        user.setId(uid);
+//        userBean.setUserType(userType);
+        return userDao.addUser(user);
     }
 
 }
