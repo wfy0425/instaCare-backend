@@ -12,6 +12,8 @@ import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
+
 @Component
 public class UserDaoImpl implements UserDao {
 
@@ -32,16 +34,29 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public List<UserBean> getByCourse(String department, String courseCode) {
-        return null;
-    }
-
-    @Override
     public void saveUserType(UserBean user){
         Firestore firestore = db.getFirestore();
         CollectionReference users = firestore.collection("users");
         HashMap<String, Integer> map = new HashMap<>();
         map.put("userType", user.getUserType());
         users.document().set(map);
+    }
+
+    @Override
+    public UserBean getUserById(String id)  throws InterruptedException, ExecutionException {
+        Firestore dbFirestore = db.getFirestore();
+        DocumentReference documentReference = dbFirestore.collection("users").document(id);
+        ApiFuture<DocumentSnapshot> future = documentReference.get();
+
+        DocumentSnapshot document = future.get();
+
+        UserBean userBean = null;
+
+        if(document.exists()) {
+            userBean = document.toObject(UserBean.class);
+            return userBean;
+        }else {
+            return null;
+        }
     }
 }

@@ -6,6 +6,8 @@ import inc.bugfree.instacare.bean.ResponseBean;
 
 import inc.bugfree.instacare.bean.UserBean;
 import inc.bugfree.instacare.dao.UserDao;
+import inc.bugfree.instacare.service.UserService;
+import org.apache.catalina.User;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
@@ -24,12 +26,12 @@ public class UserController {
 
     private static final Logger LOGGER = LogManager.getLogger(UserController.class);
 
-//    private UserService userService = null;
-//
-//    @Autowired
-//    public void setService(UserService userService) {
-//        this.userService = userService;
-//    }
+    private UserService userService = null;
+
+    @Autowired
+    public void setService(UserService userService) {
+        this.userService = userService;
+    }
 
 
     @GetMapping("/test")
@@ -43,6 +45,13 @@ public class UserController {
     @ResponseBody
     public List<UserBean> getAllUser() throws Exception {
         return userDao.findAll();
+    }
+
+    @GetMapping("/{id}")
+    @ResponseBody
+    public ResponseBean getUserById(@PathVariable String id) throws Exception {
+        UserBean ans = userService.getUserById(id);
+        return new ResponseBean(200, "OK", ans);
     }
 
     @PostMapping("/api/save")
