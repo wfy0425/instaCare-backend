@@ -14,7 +14,7 @@ import java.util.List;
 //@NoArgsConstructor
 public class UserBean {
 
-    private Integer id;
+    private String id;
     private String fullName;
     private Date createdAt;
     private Integer userType;
@@ -30,11 +30,11 @@ public class UserBean {
     private Integer numOfRating;
     private String blacklisted;
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
