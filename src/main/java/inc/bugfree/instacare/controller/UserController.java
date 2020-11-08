@@ -42,11 +42,6 @@ public class UserController {
 //        return null;
     }
 
-//    @GetMapping("/getAll")
-//    @ResponseBody
-//    public List<UserBean> getAllUser() throws Exception {
-//        return userDao.findAll();
-//    }
 
     @GetMapping("/getAll")
     @ResponseBody
@@ -61,17 +56,12 @@ public class UserController {
         return new ResponseBean(200, "OK", ans);
     }
 
-//    @PostMapping("/{id}")
-//    @ResponseBody
-//    public ResponseBean addUser(@PathVariable String id, @RequestBody UserBean user ) throws Exception {
-//        String ans = userService.addUser(id,user);
-//        return new ResponseBean(200, "OK", ans);
-//    }
-//
-//    @PostMapping("/api/save")
-//    public void saveUserType(@RequestBody UserBean user) {
-//        userDao.saveUserType(user);
-//    }
+    @PostMapping("/{id}")
+    @ResponseBody
+    public ResponseBean addUser(@PathVariable String id, @RequestBody UserBean user ) throws Exception {
+        String ans = userService.addUser(id,user);
+        return new ResponseBean(200, "OK", ans);
+    }
 
 
 }
