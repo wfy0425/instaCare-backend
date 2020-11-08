@@ -2,11 +2,10 @@ package inc.bugfree.instacare.dao.impl;
 
 import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.*;
+import inc.bugfree.instacare.bean.RequestBean;
 import inc.bugfree.instacare.bean.UserBean;
 import inc.bugfree.instacare.dao.UserDao;
 import inc.bugfree.instacare.service.FirebaseService;
-import lombok.Data;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -72,4 +71,6 @@ public class UserDaoImpl implements UserDao {
         ApiFuture<WriteResult> result = userProfile.set(userBean);
         return result.get().getUpdateTime().toString();
     }
+
+
 }

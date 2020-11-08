@@ -1,13 +1,11 @@
 package inc.bugfree.instacare.service;
 
-import com.google.api.core.ApiFuture;
-import com.google.cloud.firestore.*;
+import inc.bugfree.instacare.bean.RequestBean;
 import inc.bugfree.instacare.bean.UserBean;
 import inc.bugfree.instacare.dao.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 

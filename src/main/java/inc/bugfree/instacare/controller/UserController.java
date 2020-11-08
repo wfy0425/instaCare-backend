@@ -1,5 +1,6 @@
 package inc.bugfree.instacare.controller;
 
+import inc.bugfree.instacare.bean.RequestBean;
 import inc.bugfree.instacare.bean.ResponseBean;
 //import inc.bugfree.instacare.service.UserService;
 
@@ -60,15 +61,17 @@ public class UserController {
         return new ResponseBean(200, "OK", ans);
     }
 
-    @PostMapping("/{id}")
-    @ResponseBody
-    public ResponseBean addUser(@PathVariable String id, @RequestBody UserBean user ) throws Exception {
-        String ans = userService.addUser(id,user);
-        return new ResponseBean(200, "OK", ans);
-    }
+//    @PostMapping("/{id}")
+//    @ResponseBody
+//    public ResponseBean addUser(@PathVariable String id, @RequestBody UserBean user ) throws Exception {
+//        String ans = userService.addUser(id,user);
+//        return new ResponseBean(200, "OK", ans);
+//    }
 //
 //    @PostMapping("/api/save")
 //    public void saveUserType(@RequestBody UserBean user) {
 //        userDao.saveUserType(user);
 //    }
+
+
 }

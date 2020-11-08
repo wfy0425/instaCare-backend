@@ -1,6 +1,7 @@
 package inc.bugfree.instacare.dao;
 
 
+import inc.bugfree.instacare.bean.RequestBean;
 import inc.bugfree.instacare.bean.UserBean;
 import org.springframework.stereotype.Repository;
 
