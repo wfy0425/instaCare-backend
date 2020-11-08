@@ -12,4 +12,6 @@ import java.util.concurrent.ExecutionException;
 public interface RequestDao {
 
     void saveRequest(RequestBean requestBean, String uid);
+
+    List<RequestBean> getRequestsByUid(String id) throws ExecutionException, InterruptedException;
 }
