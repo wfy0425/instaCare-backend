@@ -52,15 +52,13 @@ public class UserDaoImpl implements UserDao {
         ApiFuture<DocumentSnapshot> future = userProfile.get();
         DocumentSnapshot document = future.get();
 
-//        UserBean userBean = null;
-//
-//        if(document.exists()) {
-//            userBean = document.toObject(UserBean.class);
-//            return userBean;
-//        }else {
-//            return null;
-//        }
-        return document.toObject(UserBean.class);
+        UserBean userBean = null;
+
+        if(document.exists()) {
+            return document.toObject(UserBean.class);
+        }else {
+            return null;
+        }
     }
 
     //TODO: add check existing user
