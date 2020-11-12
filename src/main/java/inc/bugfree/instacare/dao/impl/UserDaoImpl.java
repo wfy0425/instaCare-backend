@@ -48,18 +48,19 @@ public class UserDaoImpl implements UserDao {
     public UserBean getUserById(String id)  throws InterruptedException, ExecutionException {
         Firestore dbFirestore = db.getFirestore();
         DocumentReference documentReference = dbFirestore.collection("users").document(id);
-        ApiFuture<DocumentSnapshot> future = documentReference.get();
-
+        DocumentReference userProfile = documentReference.collection("userProfile").document(id);
+        ApiFuture<DocumentSnapshot> future = userProfile.get();
         DocumentSnapshot document = future.get();
 
-        UserBean userBean = null;
-
-        if(document.exists()) {
-            userBean = document.toObject(UserBean.class);
-            return userBean;
-        }else {
-            return null;
-        }
+//        UserBean userBean = null;
+//
+//        if(document.exists()) {
+//            userBean = document.toObject(UserBean.class);
+//            return userBean;
+//        }else {
+//            return null;
+//        }
+        return document.toObject(UserBean.class);
     }
 
     //TODO: add check existing user
