@@ -35,28 +35,27 @@ public class UserDaoImpl implements UserDao {
         return userList;
     }
 
-    @Override
-    public void saveUserType(UserBean user){
-        Firestore firestore = db.getFirestore();
-        CollectionReference users = firestore.collection("users");
-        HashMap<String, Integer> map = new HashMap<>();
-        map.put("userType", user.getUserType());
-        users.document().set(map);
-    }
+//     @Override
+//     public void saveUserType(UserBean user){
+//         Firestore firestore = db.getFirestore();
+//         CollectionReference users = firestore.collection("users");
+//         HashMap<String, Integer> map = new HashMap<>();
+//         map.put("userType", user.getUserType());
+//         users.document().set(map);
+//     }
 
     @Override
     public UserBean getUserById(String id)  throws InterruptedException, ExecutionException {
         Firestore dbFirestore = db.getFirestore();
-        DocumentReference documentReference = dbFirestore.collection("users").document(id);
-        ApiFuture<DocumentSnapshot> future = documentReference.get();
-
+//         DocumentReference documentReference = dbFirestore.collection("users").document(id);
+        DocumentReference userProfile = documentReference.collection("userProfile").document(id);
+        ApiFuture<DocumentSnapshot> future = userProfile.get();
         DocumentSnapshot document = future.get();
 
         UserBean userBean = null;
 
         if(document.exists()) {
-            userBean = document.toObject(UserBean.class);
-            return userBean;
+            return document.toObject(UserBean.class);
         }else {
             return null;
         }
@@ -66,7 +65,7 @@ public class UserDaoImpl implements UserDao {
     @Override
     public String addUser(UserBean userBean) throws ExecutionException, InterruptedException {
         Firestore dbFirestore = db.getFirestore();
-        DocumentReference docRef = dbFirestore.collection("users").document(userBean.getId());
+//         DocumentReference docRef = dbFirestore.collection("users").document(userBean.getId());
         DocumentReference userProfile = docRef.collection("userProfile").document(userBean.getId());
         ApiFuture<WriteResult> result = userProfile.set(userBean);
         return result.get().getUpdateTime().toString();
