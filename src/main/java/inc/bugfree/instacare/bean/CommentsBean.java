@@ -3,6 +3,7 @@ package inc.bugfree.instacare.bean;
 public class CommentsBean {
     private Integer id;
     private String content;
+    private String userId;
 
     public Integer getId() {
         return id;
@@ -19,6 +20,10 @@ public class CommentsBean {
     public void setContent(String content) {
         this.content = content;
     }
+
+    public String getUserId() { return userId; }
+
+    public void setUserId(String userId) { this.userId = userId; }
 
     @Override
     public String toString() {
