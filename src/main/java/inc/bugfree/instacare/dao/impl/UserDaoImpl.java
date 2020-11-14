@@ -47,9 +47,9 @@ public class UserDaoImpl implements UserDao {
     @Override
     public UserBean getUserById(String id)  throws InterruptedException, ExecutionException {
         Firestore dbFirestore = db.getFirestore();
-//         DocumentReference documentReference = dbFirestore.collection("users").document(id);
-        DocumentReference userProfile = documentReference.collection("userProfile").document(id);
-        ApiFuture<DocumentSnapshot> future = userProfile.get();
+         DocumentReference documentReference = dbFirestore.collection("users").document(id);
+//        DocumentReference userProfile = documentReference.collection("userProfile").document(id);
+        ApiFuture<DocumentSnapshot> future = documentReference.get();
         DocumentSnapshot document = future.get();
 
         UserBean userBean = null;
@@ -65,9 +65,9 @@ public class UserDaoImpl implements UserDao {
     @Override
     public String addUser(UserBean userBean) throws ExecutionException, InterruptedException {
         Firestore dbFirestore = db.getFirestore();
-//         DocumentReference docRef = dbFirestore.collection("users").document(userBean.getId());
-        DocumentReference userProfile = docRef.collection("userProfile").document(userBean.getId());
-        ApiFuture<WriteResult> result = userProfile.set(userBean);
+         DocumentReference docRef = dbFirestore.collection("users").document(userBean.getId());
+//        DocumentReference userProfile = docRef.collection("userProfile").document(userBean.getId());
+        ApiFuture<WriteResult> result = docRef.set(userBean);
         return result.get().getUpdateTime().toString();
     }
 
