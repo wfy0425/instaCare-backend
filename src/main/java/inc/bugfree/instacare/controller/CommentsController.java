@@ -11,9 +11,6 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/comments")
 public class CommentsController {
 
-    @Autowired
-    private CommentsDao commentsDao;
-
     private CommentsService commentsService = null;
 
     @Autowired
