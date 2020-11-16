@@ -36,6 +36,11 @@ public class RequestController {
     public ResponseBean getRequestByUid(@PathVariable String id) throws ExecutionException, InterruptedException {
         return new ResponseBean(200, "OK",requestService.getRequestsByUid(id));
     }
+
+    @GetMapping("/past/{id}")
+    public ResponseBean getPastRequestByUid(@PathVariable String id) throws ExecutionException, InterruptedException {
+        return new ResponseBean(200, "OK",requestService.getPastRequestsByUid(id));
+    }
     
     
 
