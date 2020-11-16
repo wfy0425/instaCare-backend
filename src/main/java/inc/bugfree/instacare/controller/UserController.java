@@ -16,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
@@ -63,5 +64,11 @@ public class UserController {
         return new ResponseBean(200, "OK", ans);
     }
 
+    @PutMapping("/{id}")
+    @ResponseBody
+    public ResponseBean updateUser(@PathVariable String id, @RequestBody Map<String, Object> updateData ) throws Exception {
+        String ans = userService.updateUser(id,updateData);
+        return new ResponseBean(200, "OK", ans);
+    }
 
 }

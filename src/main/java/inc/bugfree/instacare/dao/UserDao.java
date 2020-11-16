@@ -6,6 +6,7 @@ import inc.bugfree.instacare.bean.UserBean;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.ExecutionException;
 
 @Repository
@@ -15,4 +16,7 @@ public interface UserDao {
 
     UserBean getUserById(String id) throws InterruptedException, ExecutionException;
     String addUser(UserBean userBean) throws InterruptedException, ExecutionException;
+
+    String updateUser(String userId, Map<String, Object> updateData) throws ExecutionException, InterruptedException;
+//    String setUser(UserBean userBean) throws ExecutionException, InterruptedException;
 }

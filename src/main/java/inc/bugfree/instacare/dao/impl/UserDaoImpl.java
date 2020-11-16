@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.ExecutionException;
 
 @Component
@@ -70,5 +71,19 @@ public class UserDaoImpl implements UserDao {
         return result.get().getUpdateTime().toString();
     }
 
+    @Override
+    public String updateUser(String userId, Map<String, Object> updateData) throws ExecutionException, InterruptedException {
+        Firestore dbFirestore = db.getFirestore();
+        DocumentReference docRef = dbFirestore.collection("users").document(userId);
+        ApiFuture<WriteResult> result = docRef.set(updateData);
+        return result.get().getUpdateTime().toString();
+    }
 
+//    @Override
+//    public String setUser(UserBean userBean) throws ExecutionException, InterruptedException {
+//        Firestore dbFirestore = db.getFirestore();
+//        DocumentReference docRef = dbFirestore.collection("users").document(userBean.getId());
+//        ApiFuture<WriteResult> result = docRef.set(userBean);
+//        return result.get().getUpdateTime().toString();
+//    }
 }
