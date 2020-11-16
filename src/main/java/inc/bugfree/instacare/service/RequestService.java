@@ -28,4 +28,9 @@ public class RequestService {
     public List<RequestBean> getRequestsByUid(String id) throws ExecutionException, InterruptedException {
        return requestDao.getRequestsByUid(id);
     }
+
+    public void saveRequestToPlazza(RequestBean requestBean){
+        requestDao.saveRequestToPlazza(requestBean);
+    }
+
 }

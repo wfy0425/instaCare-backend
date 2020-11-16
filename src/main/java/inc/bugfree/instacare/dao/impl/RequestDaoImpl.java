@@ -46,5 +46,12 @@ public class RequestDaoImpl implements RequestDao {
         return list;
     }
 
+    @Override
+    public void saveRequestToPlazza(RequestBean requestBean) {
+        Firestore dbFirestore = db.getFirestore();
+        DocumentReference docRef = dbFirestore.collection("requestPlazza").document();
+        docRef.set(requestBean);
+    }
+
 
 }

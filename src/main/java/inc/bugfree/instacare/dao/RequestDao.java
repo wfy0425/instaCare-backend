@@ -14,4 +14,6 @@ public interface RequestDao {
     void saveRequest(RequestBean requestBean, String uid);
 
     List<RequestBean> getRequestsByUid(String id) throws ExecutionException, InterruptedException;
+
+    void saveRequestToPlazza(RequestBean requestBean);
 }

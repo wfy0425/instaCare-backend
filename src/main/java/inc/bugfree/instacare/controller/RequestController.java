@@ -36,7 +36,10 @@ public class RequestController {
     public List<RequestBean> getRequestByUid(@PathVariable String id) throws ExecutionException, InterruptedException {
         return requestService.getRequestsByUid(id);
     }
-    
-    
+
+    @PostMapping("/save")
+    public void saveRequestToPlazza(@RequestBody RequestBean requestBean){
+        requestService.saveRequestToPlazza(requestBean);
+    }
 
 }
