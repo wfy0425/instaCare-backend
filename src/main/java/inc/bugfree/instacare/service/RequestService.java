@@ -28,4 +28,8 @@ public class RequestService {
     public List<RequestBean> getRequestsByUid(String id) throws ExecutionException, InterruptedException {
        return requestDao.getRequestsByUid(id);
     }
+
+    public List<RequestBean> getPastRequestsByUid(String id) throws ExecutionException, InterruptedException {
+        return requestDao.getPastRequestsByUid(id);
+    }
 }

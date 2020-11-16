@@ -2,27 +2,45 @@ package inc.bugfree.instacare.bean;
 
 import com.google.cloud.firestore.annotation.PropertyName;
 
-import java.util.Date;
 import java.util.List;
 
 public class RequestBean {
     private Integer id;
     private String seniorId;
     private String volunteerId;
+    private String volunteer;
     private String title;
     private String phoneNumber;
     private String requestContent;
     private Integer commentsId;
     private List<Integer> tagsId;
+    private List<String> tags;
     private Integer type;
     private Integer status;
-    private Date createTime;
-    private Date pendingTime;
-    private Date openTime;
+    private String createTime;
+    private String pendingTime;
+    private String openTime;
     private boolean neededPhysicalContact;
     private boolean maskedPhoneNumber;
     private Integer ratingId;
     private Integer addressID;
+
+
+    public String getVolunteer() {
+        return volunteer;
+    }
+
+    public void setVolunteer(String volunteer) {
+        this.volunteer = volunteer;
+    }
+
+    public List<String> getTags() {
+        return tags;
+    }
+
+    public void setTags(List<String> tags) {
+        this.tags = tags;
+    }
 
     public Integer getId() {
         return id;
@@ -118,32 +136,32 @@ public class RequestBean {
     }
 
     @PropertyName("create_time")
-    public Date getCreateTime() {
+    public String getCreateTime() {
         return createTime;
     }
 
     @PropertyName("create_time")
-    public void setCreateTime(Date createTime) {
+    public void setCreateTime(String createTime) {
         this.createTime = createTime;
     }
 
     @PropertyName("pending_time")
-    public Date getPendingTime() {
+    public String getPendingTime() {
         return pendingTime;
     }
 
     @PropertyName("pending_time")
-    public void setPendingTime(Date pendingTime) {
+    public void setPendingTime(String pendingTime) {
         this.pendingTime = pendingTime;
     }
 
     @PropertyName("open_time")
-    public Date getOpenTime() {
+    public String getOpenTime() {
         return openTime;
     }
 
     @PropertyName("open_time")
-    public void setOpenTime(Date openTime) {
+    public void setOpenTime(String openTime) {
         this.openTime = openTime;
     }
 
@@ -187,20 +205,22 @@ public class RequestBean {
 
     @Override
     public String toString() {
-        return "Request{" +
+        return "RequestBean{" +
                 "id=" + id +
                 ", seniorId='" + seniorId + '\'' +
                 ", volunteerId='" + volunteerId + '\'' +
+                ", volunteer='" + volunteer + '\'' +
                 ", title='" + title + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", requestContent='" + requestContent + '\'' +
                 ", commentsId=" + commentsId +
                 ", tagsId=" + tagsId +
+                ", tags=" + tags +
                 ", type=" + type +
                 ", status=" + status +
-                ", createTime=" + createTime +
-                ", pendingTime=" + pendingTime +
-                ", openTime=" + openTime +
+                ", createTime='" + createTime + '\'' +
+                ", pendingTime='" + pendingTime + '\'' +
+                ", openTime='" + openTime + '\'' +
                 ", neededPhysicalContact=" + neededPhysicalContact +
                 ", maskedPhoneNumber=" + maskedPhoneNumber +
                 ", ratingId=" + ratingId +
