@@ -61,13 +61,12 @@ public class UserDaoImpl implements UserDao {
         }
     }
 
-    //TODO: add check existing user
     @Override
     public String addUser(UserBean userBean) throws ExecutionException, InterruptedException {
         Firestore dbFirestore = db.getFirestore();
          DocumentReference docRef = dbFirestore.collection("users").document(userBean.getId());
 //        DocumentReference userProfile = docRef.collection("userProfile").document(userBean.getId());
-        ApiFuture<WriteResult> result = docRef.set(userBean);
+        ApiFuture<WriteResult> result = docRef.create(userBean);
         return result.get().getUpdateTime().toString();
     }
 
