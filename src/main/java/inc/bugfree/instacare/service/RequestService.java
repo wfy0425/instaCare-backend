@@ -21,8 +21,8 @@ public class RequestService {
         this.requestDao = requestDao;
     }
 
-    public void saveRequest(RequestBean requestBean, String uid){
-        requestDao.saveRequest(requestBean, uid);
+    public String saveRequest(RequestBean requestBean, String uid) throws ExecutionException, InterruptedException {
+        return requestDao.saveRequest(requestBean, uid);
     }
 
     public List<RequestBean> getRequestsByUid(String id) throws ExecutionException, InterruptedException {

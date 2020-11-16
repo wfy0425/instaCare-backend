@@ -28,13 +28,13 @@ public class RequestController {
     }
 
     @PostMapping("/{id}")
-    public void saveRequest(@RequestBody RequestBean requestBean, @PathVariable String id){
-        requestService.saveRequest(requestBean, id);
+    public ResponseBean saveRequest(@RequestBody RequestBean requestBean, @PathVariable String id) throws ExecutionException, InterruptedException {
+        return new ResponseBean(200, "OK",requestService.saveRequest(requestBean, id));
     }
 
     @GetMapping("/{id}")
-    public List<RequestBean> getRequestByUid(@PathVariable String id) throws ExecutionException, InterruptedException {
-        return requestService.getRequestsByUid(id);
+    public ResponseBean getRequestByUid(@PathVariable String id) throws ExecutionException, InterruptedException {
+        return new ResponseBean(200, "OK",requestService.getRequestsByUid(id));
     }
     
     
