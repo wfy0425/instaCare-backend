@@ -75,7 +75,7 @@ public class UserDaoImpl implements UserDao {
     public String updateUser(String userId, Map<String, Object> updateData) throws ExecutionException, InterruptedException {
         Firestore dbFirestore = db.getFirestore();
         DocumentReference docRef = dbFirestore.collection("users").document(userId);
-        ApiFuture<WriteResult> result = docRef.set(updateData);
+        ApiFuture<WriteResult> result = docRef.update(updateData);
         return result.get().getUpdateTime().toString();
     }
 
