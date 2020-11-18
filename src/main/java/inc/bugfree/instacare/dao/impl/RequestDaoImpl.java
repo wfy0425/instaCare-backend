@@ -30,7 +30,7 @@ public class RequestDaoImpl implements RequestDao {
         DocumentReference requestInfo = docRef.collection("onGoing").document();
         ApiFuture<WriteResult> result = requestInfo.create(requestBean);
 
-        return result.get().getUpdateTime().toString();
+        return requestInfo.getId();
     }
 
     @Override
