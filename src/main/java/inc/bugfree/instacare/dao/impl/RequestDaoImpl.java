@@ -28,8 +28,8 @@ public class RequestDaoImpl implements RequestDao {
         Firestore dbFirestore = db.getFirestore();
         DocumentReference docRef = dbFirestore.collection("requests").document(uid);
         DocumentReference requestInfo = docRef.collection("onGoing").document();
+        requestBean.setId(requestInfo.getId());
         ApiFuture<WriteResult> result = requestInfo.create(requestBean);
-
         return requestInfo.getId();
     }
 

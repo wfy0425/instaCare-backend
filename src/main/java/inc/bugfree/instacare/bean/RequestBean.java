@@ -5,7 +5,7 @@ import com.google.cloud.firestore.annotation.PropertyName;
 import java.util.List;
 
 public class RequestBean {
-    private Integer id;
+    private String id;
     private String seniorId;
     private String volunteerId;
     private String volunteer;
@@ -42,11 +42,11 @@ public class RequestBean {
         this.tags = tags;
     }
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
