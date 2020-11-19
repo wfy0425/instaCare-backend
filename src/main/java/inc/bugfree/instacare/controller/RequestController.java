@@ -32,6 +32,11 @@ public class RequestController {
         return new ResponseBean(200, "OK",requestService.saveRequest(requestBean, id));
     }
 
+    @PostMapping("/past/{id}")
+    public ResponseBean savePastRequest(@RequestBody RequestBean requestBean, @PathVariable String id) throws ExecutionException, InterruptedException {
+        return new ResponseBean(200, "OK",requestService.savePastRequest(requestBean, id));
+    }
+
     @GetMapping("/{id}")
     public ResponseBean getRequestByUid(@PathVariable String id) throws ExecutionException, InterruptedException {
         return new ResponseBean(200, "OK",requestService.getRequestsByUid(id));

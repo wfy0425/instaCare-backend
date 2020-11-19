@@ -34,6 +34,18 @@ public class RequestDaoImpl implements RequestDao {
     }
 
     @Override
+    public String savePastRequest(RequestBean requestBean, String uid) throws ExecutionException, InterruptedException {
+        Firestore dbFirestore = db.getFirestore();
+        DocumentReference docRef = dbFirestore.collection("requests").document(uid);
+        DocumentReference requestInfo = docRef.collection("past").document();
+        docRef.collection("onGoing").document(requestBean.getId()).delete();
+        requestBean.setId(requestInfo.getId());
+        ApiFuture<WriteResult> result = requestInfo.create(requestBean);
+        return requestInfo.getId();
+    }
+
+
+    @Override
     public List<RequestBean> getRequestsByUid(String id) throws ExecutionException, InterruptedException {
         List<RequestBean> list = new ArrayList<>();
         Firestore dbFirestore = db.getFirestore();
