@@ -25,7 +25,15 @@ public class RequestBean {
     private boolean maskedPhoneNumber;
     private Integer ratingId;
     private Integer addressID;
+    private String address;
 
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
 
     public String getVolunteer() {
         return volunteer;
@@ -207,7 +215,7 @@ public class RequestBean {
     @Override
     public String toString() {
         return "RequestBean{" +
-                "id=" + id +
+                "id='" + id + '\'' +
                 ", seniorId='" + seniorId + '\'' +
                 ", volunteerId='" + volunteerId + '\'' +
                 ", volunteer='" + volunteer + '\'' +
@@ -219,13 +227,14 @@ public class RequestBean {
                 ", tags=" + tags +
                 ", type=" + type +
                 ", status=" + status +
-                ", createTime='" + createTime + '\'' +
-                ", pendingTime='" + pendingTime + '\'' +
-                ", openTime='" + openTime + '\'' +
+                ", createTime=" + createTime +
+                ", pendingTime=" + pendingTime +
+                ", openTime=" + openTime +
                 ", neededPhysicalContact=" + neededPhysicalContact +
                 ", maskedPhoneNumber=" + maskedPhoneNumber +
                 ", ratingId=" + ratingId +
                 ", addressID=" + addressID +
+                ", address='" + address + '\'' +
                 '}';
     }
 }

@@ -15,4 +15,6 @@ public interface RequestDao {
 
     List<RequestBean> getRequestsByUid(String id) throws ExecutionException, InterruptedException;
     List<RequestBean> getPastRequestsByUid(String id) throws ExecutionException, InterruptedException;
+
+    List<RequestBean> getAllOnGoingRequests() throws ExecutionException, InterruptedException;
 }

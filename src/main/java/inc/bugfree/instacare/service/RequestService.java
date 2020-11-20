@@ -32,4 +32,8 @@ public class RequestService {
     public List<RequestBean> getPastRequestsByUid(String id) throws ExecutionException, InterruptedException {
         return requestDao.getPastRequestsByUid(id);
     }
+
+    public List<RequestBean> getAllOnGoingRequest() throws ExecutionException, InterruptedException {
+        return requestDao.getAllOnGoingRequests();
+    }
 }
