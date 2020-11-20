@@ -10,7 +10,9 @@ import inc.bugfree.instacare.dao.RequestDao;
 import inc.bugfree.instacare.service.FirebaseService;
 import org.springframework.stereotype.Component;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
@@ -56,6 +58,14 @@ public class RequestDaoImpl implements RequestDao {
             RequestBean requestBean = document.toObject(RequestBean.class);
             list.add(requestBean);
         }
+        // TODO use orderBy
+        // sort request list by create time
+        list.sort(new Comparator<RequestBean>() {
+            @Override
+            public int compare(RequestBean o1, RequestBean o2) {
+                return o2.getCreateTime().compareTo(o1.getCreateTime());
+            }
+        });
 
         return list;
     }
