@@ -37,6 +37,7 @@ public class CommentsDaoImpl implements CommentsDao{
         Firestore dbFirestore = db.getFirestore();
         DocumentReference docRef = dbFirestore.collection("comments").document(id);
         DocumentReference commentInfo = docRef.collection("onGoing").document(id);
+        commentsBean.setId(commentInfo.getId());
         ApiFuture<WriteResult> result = commentInfo.set(commentsBean);
         return result.get().getUpdateTime().toString();
     }

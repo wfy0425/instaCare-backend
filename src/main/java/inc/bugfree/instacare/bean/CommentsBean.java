@@ -1,15 +1,15 @@
 package inc.bugfree.instacare.bean;
 
 public class CommentsBean {
-    private Integer id;
+    private String id;
     private String content;
     private String userId;
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -29,6 +29,7 @@ public class CommentsBean {
     public String toString() {
         return "Comments{" +
                 "id=" + id +
+                ", userId='" + userId + '\'' +
                 ", content='" + content + '\'' +
                 '}';
     }
