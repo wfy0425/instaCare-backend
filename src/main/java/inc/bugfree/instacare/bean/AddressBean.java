@@ -11,7 +11,8 @@ public class AddressBean {
     private String streetAddressL2;
     private String state;
     private String city;
-    //TODO deprecated
+
+    @Deprecated
     private Boolean isDefault;
 
     @PropertyName("address_id")
@@ -88,11 +89,13 @@ public class AddressBean {
         this.city = city;
     }
 
+    @Deprecated
     @PropertyName("default")
     public Boolean getDefault() {
         return isDefault;
     }
 
+    @Deprecated
     @PropertyName("default")
     public void setDefault(Boolean aDefault) {
         isDefault = aDefault;

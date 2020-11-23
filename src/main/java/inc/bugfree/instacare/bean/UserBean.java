@@ -19,10 +19,11 @@ public class UserBean {
     private Date createdAt;
     private Integer userType;
     private String email;
+    @Deprecated
     private String password;
     private String avatar;
     private Integer rating;
-    //TODO deprecated
+    @Deprecated
     private List<Integer> requestList;
     private String description;
     private String phone;
@@ -79,10 +80,12 @@ public class UserBean {
         this.email = email;
     }
 
+    @Deprecated
     public String getPassword() {
         return password;
     }
 
+    @Deprecated
     public void setPassword(String password) {
         this.password = password;
     }
@@ -103,11 +106,13 @@ public class UserBean {
         this.rating = rating;
     }
 
+    @Deprecated
     @PropertyName("request_list")
     public List<Integer> getRequestList() {
         return requestList;
     }
 
+    @Deprecated
     @PropertyName("request_list")
     public void setRequestList(List<Integer> requestList) {
         this.requestList = requestList;
