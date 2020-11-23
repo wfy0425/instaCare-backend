@@ -3,33 +3,34 @@ package inc.bugfree.instacare.bean;
 import com.google.cloud.firestore.annotation.PropertyName;
 
 public class AddressBean {
-    private Integer addressId;
-    private Integer userId;
+    private String addressId;
+    private String userId;
     private String geolocation;
     private String zipCode;
     private String streetAddressL1;
     private String streetAddressL2;
     private String state;
     private String city;
+    //TODO deprecated
     private Boolean isDefault;
 
     @PropertyName("address_id")
-    public Integer getAddressId() {
+    public String getAddressId() {
         return addressId;
     }
 
     @PropertyName("address_id")
-    public void setAddressId(Integer addressId) {
+    public void setAddressId(String addressId) {
         this.addressId = addressId;
     }
 
     @PropertyName("user_id")
-    public Integer getUserId() {
+    public String getUserId() {
         return userId;
     }
 
     @PropertyName("user_id")
-    public void setUserId(Integer userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 

@@ -86,4 +86,18 @@ public class RequestDaoImpl implements RequestDao {
     }
 
 
+    @Override
+    public List<RequestBean> getAddressByAddressId(String id) throws ExecutionException, InterruptedException {
+        List<RequestBean> list = new ArrayList<>();
+        Firestore dbFirestore = db.getFirestore();
+        DocumentReference requests = dbFirestore.collection("requests").document(id);
+        CollectionReference onGoing = requests.collection("onGoing");
+        ApiFuture<QuerySnapshot> apiFuture = onGoing.get();
+        for (QueryDocumentSnapshot document : apiFuture.get().getDocuments()) {
+            RequestBean requestBean = document.toObject(RequestBean.class);
+            list.add(requestBean);
+        }
+
+        return list;
+    }
 }

@@ -22,10 +22,13 @@ public class UserBean {
     private String password;
     private String avatar;
     private Integer rating;
+    //TODO deprecated
     private List<Integer> requestList;
     private String description;
     private String phone;
+    //TODO deprecated
     private List<String> addressList;
+    private String defaultAddressId;
     private Integer accumulativeRating;
     private Integer numOfRating;
     private String blacklisted;
@@ -162,6 +165,14 @@ public class UserBean {
 
     public void setBlacklisted(String blacklisted) {
         this.blacklisted = blacklisted;
+    }
+
+    public String getDefaultAddressId() {
+        return defaultAddressId;
+    }
+
+    public void setDefaultAddressId(String defaultAddressId) {
+        this.defaultAddressId = defaultAddressId;
     }
 
     @Override
