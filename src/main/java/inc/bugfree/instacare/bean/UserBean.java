@@ -172,10 +172,12 @@ public class UserBean {
         this.blacklisted = blacklisted;
     }
 
+    @PropertyName("default_address_id")
     public String getDefaultAddressId() {
         return defaultAddressId;
     }
 
+    @PropertyName("default_address_id")
     public void setDefaultAddressId(String defaultAddressId) {
         this.defaultAddressId = defaultAddressId;
     }

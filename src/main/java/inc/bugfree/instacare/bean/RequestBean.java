@@ -196,10 +196,12 @@ public class RequestBean {
         this.ratingId = ratingId;
     }
 
+    @PropertyName("address_id")
     public Integer getAddressID() {
         return addressID;
     }
 
+    @PropertyName("address_id")
     public void setAddressID(Integer addressID) {
         this.addressID = addressID;
     }
