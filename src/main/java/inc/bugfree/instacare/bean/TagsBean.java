@@ -15,12 +15,12 @@ public class TagsBean {
         this.id = id;
     }
 
-    @PropertyName("tag_content")
+//    @PropertyName("tag_content")
     public String getTagContent() {
         return tagContent;
     }
 
-    @PropertyName("tag_content")
+//    @PropertyName("tag_content")
     public void setTagContent(String tagContent) {
         this.tagContent = tagContent;
     }

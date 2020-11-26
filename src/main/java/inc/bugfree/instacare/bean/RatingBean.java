@@ -17,42 +17,42 @@ public class RatingBean {
         this.id = id;
     }
 
-    @PropertyName("user_rating")
+//    @PropertyName("user_rating")
     public Integer getUserRating() {
         return userRating;
     }
 
-    @PropertyName("user_rating")
+//    @PropertyName("user_rating")
     public void setUserRating(Integer userRating) {
         this.userRating = userRating;
     }
 
-    @PropertyName("user_comment")
+//    @PropertyName("user_comment")
     public String getUserComment() {
         return userComment;
     }
 
-    @PropertyName("user_comment")
+//    @PropertyName("user_comment")
     public void setUserComment(String userComment) {
         this.userComment = userComment;
     }
 
-    @PropertyName("volunteer_rating")
+//    @PropertyName("volunteer_rating")
     public Integer getVolunteerRating() {
         return volunteerRating;
     }
 
-    @PropertyName("volunteer_rating")
+//    @PropertyName("volunteer_rating")
     public void setVolunteerRating(Integer volunteerRating) {
         this.volunteerRating = volunteerRating;
     }
 
-    @PropertyName("volunteer_comment")
+//    @PropertyName("volunteer_comment")
     public String getVolunteerComment() {
         return volunteerComment;
     }
 
-    @PropertyName("volunteer_comment")
+//    @PropertyName("volunteer_comment")
     public void setVolunteerComment(String volunteerComment) {
         this.volunteerComment = volunteerComment;
     }
