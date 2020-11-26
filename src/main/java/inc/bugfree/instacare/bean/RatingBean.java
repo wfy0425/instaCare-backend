@@ -3,17 +3,17 @@ package inc.bugfree.instacare.bean;
 import com.google.cloud.firestore.annotation.PropertyName;
 
 public class RatingBean {
-    private Integer id;
+    private String id;
     private Integer userRating;
     private String userComment;
     private Integer volunteerRating;
     private String volunteerComment;
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
