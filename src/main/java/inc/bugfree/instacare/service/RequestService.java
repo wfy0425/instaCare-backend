@@ -25,15 +25,15 @@ public class RequestService {
         return requestDao.saveRequest(requestBean, uid);
     }
 
-    public String savePastRequest(RequestBean requestBean, String uid) throws ExecutionException, InterruptedException {
-        return requestDao.savePastRequest(requestBean, uid);
-    }
-
     public List<RequestBean> getRequestsByUid(String id) throws ExecutionException, InterruptedException {
-       return requestDao.getRequestsByUid(id);
+        return requestDao.getRequestsByUid(id);
     }
 
     public List<RequestBean> getPastRequestsByUid(String id) throws ExecutionException, InterruptedException {
         return requestDao.getPastRequestsByUid(id);
+    }
+
+    public List<RequestBean> getAllOnGoingRequest() throws ExecutionException, InterruptedException {
+        return requestDao.getAllOnGoingRequests();
     }
 }

@@ -42,32 +42,32 @@ public class UserBean {
         this.id = id;
     }
 
-    @PropertyName("full_name")
+//    @PropertyName("full_name")
     public String getFullName() {
         return fullName;
     }
 
-    @PropertyName("full_name")
+//    @PropertyName("full_name")
     public void setFullName(String fullName) {
         this.fullName = fullName;
     }
 
-    @PropertyName("created_at")
+//    @PropertyName("created_at")
     public Date getCreatedAt() {
         return createdAt;
     }
 
-    @PropertyName("created_at")
+//    @PropertyName("created_at")
     public void setCreatedAt(Date createdAt) {
         this.createdAt = createdAt;
     }
 
-    @PropertyName("usertype")
+//    @PropertyName("usertype")
     public Integer getUserType() {
         return userType;
     }
 
-    @PropertyName("usertype")
+//    @PropertyName("usertype")
     public void setUserType(Integer userType) {
         this.userType = userType;
     }
@@ -107,13 +107,13 @@ public class UserBean {
     }
 
     @Deprecated
-    @PropertyName("request_list")
+//    @PropertyName("request_list")
     public List<Integer> getRequestList() {
         return requestList;
     }
 
     @Deprecated
-    @PropertyName("request_list")
+//    @PropertyName("request_list")
     public void setRequestList(List<Integer> requestList) {
         this.requestList = requestList;
     }
@@ -134,32 +134,32 @@ public class UserBean {
         this.phone = phone;
     }
 
-    @PropertyName("address_list")
+//    @PropertyName("address_list")
     public List<String> getAddressList() {
         return addressList;
     }
 
-    @PropertyName("address_list")
+//    @PropertyName("address_list")
     public void setAddressList(List<String> addressList) {
         this.addressList = addressList;
     }
 
-    @PropertyName("accumulative_rating")
+//    @PropertyName("accumulative_rating")
     public Integer getAccumulativeRating() {
         return accumulativeRating;
     }
 
-    @PropertyName("accumulative_rating")
+//    @PropertyName("accumulative_rating")
     public void setAccumulativeRating(Integer accumulativeRating) {
         this.accumulativeRating = accumulativeRating;
     }
 
-    @PropertyName("num_of_rating")
+//    @PropertyName("num_of_rating")
     public Integer getNumOfRating() {
         return numOfRating;
     }
 
-    @PropertyName("num_of_rating")
+//    @PropertyName("num_of_rating")
     public void setNumOfRating(Integer numOfRating) {
         this.numOfRating = numOfRating;
     }
@@ -172,10 +172,12 @@ public class UserBean {
         this.blacklisted = blacklisted;
     }
 
+//    @PropertyName("default_address_id")
     public String getDefaultAddressId() {
         return defaultAddressId;
     }
 
+//    @PropertyName("default_address_id")
     public void setDefaultAddressId(String defaultAddressId) {
         this.defaultAddressId = defaultAddressId;
     }

@@ -51,23 +51,23 @@ public class RequestBean {
         this.id = id;
     }
 
-    @PropertyName("senior_id")
+//    @PropertyName("senior_id")
     public String getSeniorId() {
         return seniorId;
     }
 
-    @PropertyName("senior_id")
+//    @PropertyName("senior_id")
     public void setSeniorId(String seniorId) {
         this.seniorId = seniorId;
     }
 
-    @PropertyName("volunteer_id")
+//    @PropertyName("volunteer_id")
 
     public String getVolunteerId() {
         return volunteerId;
     }
 
-    @PropertyName("volunteer_id")
+//    @PropertyName("volunteer_id")
     public void setVolunteerId(String volunteerId) {
         this.volunteerId = volunteerId;
     }
@@ -80,42 +80,42 @@ public class RequestBean {
         this.title = title;
     }
 
-    @PropertyName("phone_number")
+//    @PropertyName("phone_number")
     public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    @PropertyName("phone_number")
+//    @PropertyName("phone_number")
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
-    @PropertyName("request_content")
+//    @PropertyName("request_content")
     public String getRequestContent() {
         return requestContent;
     }
 
-    @PropertyName("request_content")
+//    @PropertyName("request_content")
     public void setRequestContent(String requestContent) {
         this.requestContent = requestContent;
     }
 
-    @PropertyName("comments_id")
+//    @PropertyName("comments_id")
     public Integer getCommentsId() {
         return commentsId;
     }
 
-    @PropertyName("comments_id")
+//    @PropertyName("comments_id")
     public void setCommentsId(Integer commentsId) {
         this.commentsId = commentsId;
     }
 
-    @PropertyName("tags_id")
+//    @PropertyName("tags_id")
     public List<Integer> getTagsId() {
         return tagsId;
     }
 
-    @PropertyName("tags_id")
+//    @PropertyName("tags_id")
     public void setTagsId(List<Integer> tagsId) {
         this.tagsId = tagsId;
     }
@@ -136,70 +136,72 @@ public class RequestBean {
         this.status = status;
     }
 
-    @PropertyName("create_time")
+//    @PropertyName("create_time")
     public Date getCreateTime() {
         return createTime;
     }
 
-    @PropertyName("create_time")
+//    @PropertyName("create_time")
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
     }
 
-    @PropertyName("pending_time")
+//    @PropertyName("pending_time")
     public Date getPendingTime() {
         return pendingTime;
     }
 
-    @PropertyName("pending_time")
+//    @PropertyName("pending_time")
     public void setPendingTime(Date pendingTime) {
         this.pendingTime = pendingTime;
     }
 
-    @PropertyName("open_time")
+//    @PropertyName("open_time")
     public Date getOpenTime() {
         return openTime;
     }
 
-    @PropertyName("open_time")
+//    @PropertyName("open_time")
     public void setOpenTime(Date openTime) {
         this.openTime = openTime;
     }
 
-    @PropertyName("needed_physical_contact")
+//    @PropertyName("needed_physical_contact")
     public boolean isNeededPhysicalContact() {
         return neededPhysicalContact;
     }
 
-    @PropertyName("needed_physical_contact")
+//    @PropertyName("needed_physical_contact")
     public void setNeededPhysicalContact(boolean neededPhysicalContact) {
         this.neededPhysicalContact = neededPhysicalContact;
     }
 
-    @PropertyName("masked_phone_number")
+//    @PropertyName("masked_phone_number")
     public boolean isMaskedPhoneNumber() {
         return maskedPhoneNumber;
     }
 
-    @PropertyName("masked_phone_number")
+//    @PropertyName("masked_phone_number")
     public void setMaskedPhoneNumber(boolean maskedPhoneNumber) {
         this.maskedPhoneNumber = maskedPhoneNumber;
     }
 
-    @PropertyName("rating_id")
+//    @PropertyName("rating_id")
     public Integer getRatingId() {
         return ratingId;
     }
 
-    @PropertyName("rating_id")
+//    @PropertyName("rating_id")
     public void setRatingId(Integer ratingId) {
         this.ratingId = ratingId;
     }
 
+//    @PropertyName("address_id")
     public Integer getAddressID() {
         return addressID;
     }
 
+//    @PropertyName("address_id")
     public void setAddressID(Integer addressID) {
         this.addressID = addressID;
     }
@@ -207,7 +209,7 @@ public class RequestBean {
     @Override
     public String toString() {
         return "RequestBean{" +
-                "id=" + id +
+                "id='" + id + '\'' +
                 ", seniorId='" + seniorId + '\'' +
                 ", volunteerId='" + volunteerId + '\'' +
                 ", volunteer='" + volunteer + '\'' +
@@ -219,9 +221,9 @@ public class RequestBean {
                 ", tags=" + tags +
                 ", type=" + type +
                 ", status=" + status +
-                ", createTime='" + createTime + '\'' +
-                ", pendingTime='" + pendingTime + '\'' +
-                ", openTime='" + openTime + '\'' +
+                ", createTime=" + createTime +
+                ", pendingTime=" + pendingTime +
+                ", openTime=" + openTime +
                 ", neededPhysicalContact=" + neededPhysicalContact +
                 ", maskedPhoneNumber=" + maskedPhoneNumber +
                 ", ratingId=" + ratingId +

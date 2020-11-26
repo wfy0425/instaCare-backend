@@ -15,22 +15,22 @@ public class AddressBean {
     @Deprecated
     private Boolean isDefault;
 
-    @PropertyName("address_id")
+//    @PropertyName("address_id")
     public String getAddressId() {
         return addressId;
     }
 
-    @PropertyName("address_id")
+//    @PropertyName("address_id")
     public void setAddressId(String addressId) {
         this.addressId = addressId;
     }
 
-    @PropertyName("user_id")
+//    @PropertyName("user_id")
     public String getUserId() {
         return userId;
     }
 
-    @PropertyName("user_id")
+//    @PropertyName("user_id")
     public void setUserId(String userId) {
         this.userId = userId;
     }
@@ -43,32 +43,32 @@ public class AddressBean {
         this.geolocation = geolocation;
     }
 
-    @PropertyName("zip_code")
+//    @PropertyName("zip_code")
     public String getZipCode() {
         return zipCode;
     }
 
-    @PropertyName("zip_code")
+//    @PropertyName("zip_code")
     public void setZipCode(String zipCode) {
         this.zipCode = zipCode;
     }
 
-    @PropertyName("street_address_l1")
+//    @PropertyName("street_address_l1")
     public String getStreetAddressL1() {
         return streetAddressL1;
     }
 
-    @PropertyName("street_address_l1")
+//    @PropertyName("street_address_l1")
     public void setStreetAddressL1(String streetAddressL1) {
         this.streetAddressL1 = streetAddressL1;
     }
 
-    @PropertyName("street_address_l2")
+//    @PropertyName("street_address_l2")
     public String getStreetAddressL2() {
         return streetAddressL2;
     }
 
-    @PropertyName("street_address_l2")
+//    @PropertyName("street_address_l2")
     public void setStreetAddressL2(String streetAddressL2) {
         this.streetAddressL2 = streetAddressL2;
     }
@@ -90,15 +90,15 @@ public class AddressBean {
     }
 
     @Deprecated
-    @PropertyName("default")
+//    @PropertyName("default")
     public Boolean getDefault() {
         return isDefault;
     }
 
     @Deprecated
-    @PropertyName("default")
-    public void setDefault(Boolean aDefault) {
-        isDefault = aDefault;
+//    @PropertyName("default")
+    public void setDefault(Boolean isDefault) {
+        this.isDefault = isDefault;
     }
 
     @Override
