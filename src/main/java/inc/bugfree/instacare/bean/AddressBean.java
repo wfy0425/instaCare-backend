@@ -97,8 +97,8 @@ public class AddressBean {
 
     @Deprecated
     @PropertyName("default")
-    public void setDefault(Boolean aDefault) {
-        isDefault = aDefault;
+    public void setDefault(Boolean isDefault) {
+        this.isDefault = isDefault;
     }
 
     @Override
