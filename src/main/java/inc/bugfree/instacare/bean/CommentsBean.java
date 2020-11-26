@@ -1,9 +1,12 @@
 package inc.bugfree.instacare.bean;
 
+import java.util.Date;
+
 public class CommentsBean {
     private String id;
     private String content;
     private String userId;
+    private Date createTime;
 
     public String getId() {
         return id;
@@ -24,6 +27,10 @@ public class CommentsBean {
     public String getUserId() { return userId; }
 
     public void setUserId(String userId) { this.userId = userId; }
+
+    public Date getCreateTime() { return createTime; }
+
+    public void setCreateTime(Date createTime) { this.createTime = createTime; }
 
     @Override
     public String toString() {

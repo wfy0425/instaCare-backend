@@ -5,6 +5,7 @@ import inc.bugfree.instacare.dao.CommentsDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 @Service
@@ -12,13 +13,13 @@ public class CommentsService {
     private CommentsDao commentsDao = null;
 
     @Autowired
-    public void setDao(CommentsDao commentsDao) {this.commentsDao = commentsDao;}
+    public void setCommentsDao(CommentsDao commentsDao) {this.commentsDao = commentsDao;}
 
-    public CommentsBean getCommentById(String id) throws InterruptedException, ExecutionException {
-        return commentsDao.getCommentById(id);
+    public List<CommentsBean> getCommentByUid(String userId, String commentId) throws InterruptedException, ExecutionException {
+        return commentsDao.getCommentByUid(userId, commentId);
     }
 
-    public String addComments(CommentsBean commentsBean, String id) throws InterruptedException, ExecutionException {
-        return commentsDao.addComments(commentsBean, id);
+    public String updateCommentByUid(String userId, String commentId, CommentsBean commentsBean) throws InterruptedException, ExecutionException {
+        return commentsDao.updateCommentByUid(userId, commentId, commentsBean);
     }
 }

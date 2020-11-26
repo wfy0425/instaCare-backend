@@ -7,6 +7,9 @@ import inc.bugfree.instacare.service.CommentsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/comments")
 public class CommentsController {
@@ -16,17 +19,17 @@ public class CommentsController {
     @Autowired
     public void setService(CommentsService commentsService) {this.commentsService=commentsService;}
 
-    @GetMapping("/{id}")
+    @GetMapping("/{userId}/{commentId}")
     @ResponseBody
-    public ResponseBean getCommentById(@PathVariable String id) throws Exception {
-        CommentsBean commentsBean = commentsService.getCommentById(id);
-        return new ResponseBean(200, "OK", commentsBean);
+    public ResponseBean getCommentByUid(@PathVariable String userId, @PathVariable String commentId) throws Exception {
+        List<CommentsBean> commentsBeans = commentsService.getCommentByUid(userId, commentId);
+        return new ResponseBean(200, "OK", commentsBeans);
     }
 
-    @PostMapping("/{id}")
+    @PostMapping("/{userId}/{commentId}")
     @ResponseBody
-    public ResponseBean addComments(@PathVariable String id, @RequestBody CommentsBean commentsBean) throws Exception {
-        String ans = commentsService.addComments(commentsBean, id);
+    public ResponseBean updateCommentByUid(@PathVariable String userId, @PathVariable String commentId, @RequestBody CommentsBean commentsBean) throws Exception {
+        String ans = commentsService.updateCommentByUid(userId, commentId, commentsBean);
         return new ResponseBean(200, "OK", ans);
     }
 }
