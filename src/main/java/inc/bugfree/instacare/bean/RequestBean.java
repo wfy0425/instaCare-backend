@@ -10,6 +10,7 @@ public class RequestBean {
     private String seniorId;
     private String volunteerId;
     private String volunteer;
+    private String requestId;
     private String title;
     private String phoneNumber;
     private String requestContent;
@@ -26,6 +27,15 @@ public class RequestBean {
     private Integer ratingId;
     private Integer addressID;
 
+    @PropertyName("request_id")
+    public String getRequestId() {
+        return requestId;
+    }
+
+    @PropertyName("request_id")
+    public void setRequestId(String requestId) {
+        this.requestId = requestId;
+    }
 
     public String getVolunteer() {
         return volunteer;
@@ -207,10 +217,11 @@ public class RequestBean {
     @Override
     public String toString() {
         return "RequestBean{" +
-                "id=" + id +
+                "id='" + id + '\'' +
                 ", seniorId='" + seniorId + '\'' +
                 ", volunteerId='" + volunteerId + '\'' +
                 ", volunteer='" + volunteer + '\'' +
+                ", requestId='" + requestId + '\'' +
                 ", title='" + title + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", requestContent='" + requestContent + '\'' +
@@ -219,9 +230,9 @@ public class RequestBean {
                 ", tags=" + tags +
                 ", type=" + type +
                 ", status=" + status +
-                ", createTime='" + createTime + '\'' +
-                ", pendingTime='" + pendingTime + '\'' +
-                ", openTime='" + openTime + '\'' +
+                ", createTime=" + createTime +
+                ", pendingTime=" + pendingTime +
+                ", openTime=" + openTime +
                 ", neededPhysicalContact=" + neededPhysicalContact +
                 ", maskedPhoneNumber=" + maskedPhoneNumber +
                 ", ratingId=" + ratingId +
