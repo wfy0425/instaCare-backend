@@ -30,10 +30,9 @@ public class RequestDaoImpl implements RequestDao {
         Firestore dbFirestore = db.getFirestore();
         DocumentReference docRef = dbFirestore.collection("requestPlaza").document();
 //        dbFirestore.collection("requestPlaza").orderBy("create_time", Query.Direction.DESCENDING);
-        requestBean.setId(uid);
-        requestBean.setRequestId(docRef.getId());
+        requestBean.setId(docRef.getId());
         requestBean.setSeniorId(uid);
-        requestBean.setStatus(0); // 0 is ongoing
+        requestBean.setStatus(1); // 1 is ongoing, 2 is taken, 3 is completed
         ApiFuture<WriteResult> result = docRef.create(requestBean);
 
         return result.get().getUpdateTime().toString();
@@ -44,14 +43,19 @@ public class RequestDaoImpl implements RequestDao {
         List<RequestBean> list = new ArrayList<>();
         Firestore dbFirestore = db.getFirestore();
         CollectionReference requestPlaza = dbFirestore.collection("requestPlaza");
-//        Query result = requestPlaza.orderBy("create_time", Query.Direction.DESCENDING);
-        Query queryId = requestPlaza.whereEqualTo("id", id);
-        Query ongoing = queryId.whereEqualTo("status", 0);
+        Query ongoing = requestPlaza.whereLessThan("status", 3);
+//        Query orderedOngoing = ongoing.orderBy("create_time", Query.Direction.DESCENDING);
 
         ApiFuture<QuerySnapshot> apiFuture = ongoing.get();
         for (QueryDocumentSnapshot document : apiFuture.get().getDocuments()) {
             RequestBean requestBean = document.toObject(RequestBean.class);
+            if (requestBean.getVolunteerId()==null){
+                if (requestBean.getSeniorId().equals(id)){
+                    list.add(requestBean);
+                }
+            }else if (requestBean.getVolunteerId().equals(id)){
                 list.add(requestBean);
+            }
 
         }
         list.sort(new Comparator<RequestBean>() {
@@ -69,11 +73,11 @@ public class RequestDaoImpl implements RequestDao {
         List<RequestBean> list = new ArrayList<>();
         Firestore dbFirestore = db.getFirestore();
         CollectionReference requestPlaza = dbFirestore.collection("requestPlaza");
-        Query queryId = requestPlaza.whereEqualTo("id", id);
-        Query pastRequest = queryId.whereEqualTo("status", 1);
+        Query pastRequest = requestPlaza.whereEqualTo("status", 3);
         ApiFuture<QuerySnapshot> apiFuture = pastRequest.get();
         for (QueryDocumentSnapshot document : apiFuture.get().getDocuments()) {
             RequestBean requestBean = document.toObject(RequestBean.class);
+            if (requestBean.getSeniorId().equals(id) || requestBean.getVolunteerId().equals(id))
                 list.add(requestBean);
         }
 
@@ -92,7 +96,7 @@ public class RequestDaoImpl implements RequestDao {
         List<RequestBean> list = new ArrayList<>();
         Firestore dbFirestore = db.getFirestore();
         CollectionReference requestPlaza = dbFirestore.collection("requestPlaza");
-        Query result = requestPlaza.whereEqualTo("status", 0);
+        Query result = requestPlaza.whereEqualTo("status", 1);
         ApiFuture<QuerySnapshot> apiFuture = result.get();
         for (QueryDocumentSnapshot document : apiFuture.get().getDocuments()) {
             RequestBean requestBean = document.toObject(RequestBean.class);
