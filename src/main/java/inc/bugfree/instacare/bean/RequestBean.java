@@ -209,7 +209,7 @@ public class RequestBean {
     @Override
     public String toString() {
         return "RequestBean{" +
-                "id=" + id +
+                "id='" + id + '\'' +
                 ", seniorId='" + seniorId + '\'' +
                 ", volunteerId='" + volunteerId + '\'' +
                 ", volunteer='" + volunteer + '\'' +
@@ -221,9 +221,9 @@ public class RequestBean {
                 ", tags=" + tags +
                 ", type=" + type +
                 ", status=" + status +
-                ", createTime='" + createTime + '\'' +
-                ", pendingTime='" + pendingTime + '\'' +
-                ", openTime='" + openTime + '\'' +
+                ", createTime=" + createTime +
+                ", pendingTime=" + pendingTime +
+                ", openTime=" + openTime +
                 ", neededPhysicalContact=" + neededPhysicalContact +
                 ", maskedPhoneNumber=" + maskedPhoneNumber +
                 ", ratingId=" + ratingId +
