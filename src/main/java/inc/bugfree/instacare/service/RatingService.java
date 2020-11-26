@@ -45,8 +45,8 @@ public class RatingService {
 
         Map<String, Object> updateData = new HashMap<>();
         int numOfRating = user.getNumOfRating();
-        updateData.put("num_of_rating",numOfRating+1);
-        updateData.put("accumulative_rating",(numOfRating*user.getAccumulativeRating()+ratingBean.getUserRating())/(numOfRating+1));
+        updateData.put("numOfRating",numOfRating+1);
+        updateData.put("accumulativeRating",(numOfRating*user.getAccumulativeRating()+ratingBean.getUserRating())/(numOfRating+1));
         userDao.updateUser(userId, updateData);
 
         return ratingDao.addRatingsByUserId(ratingBean,userId);
