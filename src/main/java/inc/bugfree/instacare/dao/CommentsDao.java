@@ -8,7 +8,7 @@ import java.util.concurrent.ExecutionException;
 
 @Repository
 public interface CommentsDao {
-    List<CommentsBean> getCommentByUid(String userId, String commentId) throws InterruptedException, ExecutionException;
+    List<CommentsBean> getCommentsByRequestId(String requestId) throws InterruptedException, ExecutionException;
 
-    String updateCommentByUid(String userId, String commentId, CommentsBean commentsBean) throws InterruptedException, ExecutionException;
+    String updateCommentByRequestId(String requestId, CommentsBean commentsBean) throws InterruptedException, ExecutionException;
 }

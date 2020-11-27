@@ -15,11 +15,11 @@ public class CommentsService {
     @Autowired
     public void setCommentsDao(CommentsDao commentsDao) {this.commentsDao = commentsDao;}
 
-    public List<CommentsBean> getCommentByUid(String userId, String commentId) throws InterruptedException, ExecutionException {
-        return commentsDao.getCommentByUid(userId, commentId);
+    public List<CommentsBean> getCommentsByRequestId(String requestId) throws InterruptedException, ExecutionException {
+        return commentsDao.getCommentsByRequestId(requestId);
     }
 
-    public String updateCommentByUid(String userId, String commentId, CommentsBean commentsBean) throws InterruptedException, ExecutionException {
-        return commentsDao.updateCommentByUid(userId, commentId, commentsBean);
+    public String updateCommentByRequestId(String requestId, CommentsBean commentsBean) throws InterruptedException, ExecutionException {
+        return commentsDao.updateCommentByRequestId(requestId, commentsBean);
     }
 }

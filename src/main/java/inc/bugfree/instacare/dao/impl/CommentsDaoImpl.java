@@ -8,6 +8,7 @@ import inc.bugfree.instacare.dao.CommentsDao;
 import inc.bugfree.instacare.service.FirebaseService;
 import org.springframework.stereotype.Component;
 
+import javax.swing.text.Document;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -21,14 +22,14 @@ public class CommentsDaoImpl implements CommentsDao{
     public CommentsDaoImpl(FirebaseService db) {this.db = db;}
 
     @Override
-    public List<CommentsBean> getCommentByUid(String userId, String commentId) throws InterruptedException, ExecutionException {
+    public List<CommentsBean> getCommentsByRequestId(String requestId) throws InterruptedException, ExecutionException {
         List<CommentsBean> list = new ArrayList<>();
         Firestore dbFirestore = db.getFirestore();
-        DocumentReference commentDocRef = dbFirestore.collection("comments").document(commentId);
-        CollectionReference commentsColRef = commentDocRef.collection("allComments");
-        Query query = commentsColRef.whereEqualTo("userId", userId).orderBy("createTime", Query.Direction.DESCENDING);
+        DocumentReference requestDocRef = dbFirestore.collection("requestPlaza").document(requestId);
+        CollectionReference commentsColRef = requestDocRef.collection("comments");
+        Query query = commentsColRef.orderBy("createTime", Query.Direction.DESCENDING);
         ApiFuture<QuerySnapshot> apiFuture = query.get();
-        for (DocumentSnapshot document : apiFuture.get().getDocuments()) {
+        for (DocumentSnapshot document: apiFuture.get().getDocuments()){
             CommentsBean commentsBean = document.toObject(CommentsBean.class);
             list.add(commentsBean);
         }
@@ -36,12 +37,12 @@ public class CommentsDaoImpl implements CommentsDao{
     }
 
     @Override
-    public String updateCommentByUid(String userId, String commentId, CommentsBean commentsBean) throws InterruptedException, ExecutionException {
+    public String updateCommentByRequestId(String requestId, CommentsBean commentsBean) throws InterruptedException, ExecutionException {
         Firestore dbFirestore = db.getFirestore();
-        DocumentReference docRef = dbFirestore.collection("comments").document(commentId);
-        DocumentReference commentDoc = docRef.collection("allComments").document();
-        commentsBean.setId(commentDoc.getId());
-        ApiFuture<WriteResult> result = commentDoc.create(commentsBean);
+        DocumentReference requestDocRef = dbFirestore.collection("requestPlaza").document(requestId);
+        DocumentReference commentDocRef = requestDocRef.collection("comments").document();
+        commentsBean.setId(commentDocRef.getId());
+        ApiFuture<WriteResult> result = commentDocRef.create(commentsBean);
         return result.get().getUpdateTime().toString();
     }
 }

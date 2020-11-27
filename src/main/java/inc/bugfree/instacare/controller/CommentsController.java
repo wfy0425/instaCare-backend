@@ -19,17 +19,17 @@ public class CommentsController {
     @Autowired
     public void setService(CommentsService commentsService) {this.commentsService=commentsService;}
 
-    @GetMapping("/{userId}/{commentId}")
+    @GetMapping("/{requestId}")
     @ResponseBody
-    public ResponseBean getCommentByUid(@PathVariable String userId, @PathVariable String commentId) throws Exception {
-        List<CommentsBean> commentsBeans = commentsService.getCommentByUid(userId, commentId);
+    public ResponseBean getCommentsByRequestId(@PathVariable String requestId) throws Exception {
+        List<CommentsBean> commentsBeans = commentsService.getCommentsByRequestId(requestId);
         return new ResponseBean(200, "OK", commentsBeans);
     }
 
-    @PostMapping("/{userId}/{commentId}")
+    @PostMapping("/{requestId}")
     @ResponseBody
-    public ResponseBean updateCommentByUid(@PathVariable String userId, @PathVariable String commentId, @RequestBody CommentsBean commentsBean) throws Exception {
-        String ans = commentsService.updateCommentByUid(userId, commentId, commentsBean);
+    public ResponseBean updateCommentByRequestId(@PathVariable String requestId, @RequestBody CommentsBean commentsBean) throws Exception {
+        String ans = commentsService.updateCommentByRequestId(requestId, commentsBean);
         return new ResponseBean(200, "OK", ans);
     }
 }
