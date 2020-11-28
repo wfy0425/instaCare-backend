@@ -45,7 +45,6 @@ public class RequestDaoImpl implements RequestDao {
         Firestore dbFirestore = db.getFirestore();
         CollectionReference requestPlaza = dbFirestore.collection("requestPlaza");
         Query ongoing = requestPlaza.whereLessThan("status", 3);
-//        Query orderedOngoing = ongoing.orderBy("create_time", Query.Direction.DESCENDING);
 
         ApiFuture<QuerySnapshot> apiFuture = ongoing.get();
         for (QueryDocumentSnapshot document : apiFuture.get().getDocuments()) {
