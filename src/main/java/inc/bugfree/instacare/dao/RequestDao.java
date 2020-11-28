@@ -6,6 +6,7 @@ import inc.bugfree.instacare.bean.UserBean;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.ExecutionException;
 
 @Repository
@@ -17,4 +18,6 @@ public interface RequestDao {
     List<RequestBean> getPastRequestsByUid(String id) throws ExecutionException, InterruptedException;
 
     List<RequestBean> getAllOnGoingRequests() throws ExecutionException, InterruptedException;
+
+    String updateRequest(String requestId, Map<String, Object> updateData) throws ExecutionException, InterruptedException;
 }

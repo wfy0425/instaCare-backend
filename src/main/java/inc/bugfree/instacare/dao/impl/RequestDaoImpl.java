@@ -14,6 +14,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.ExecutionException;
 
 @Component
@@ -113,5 +114,11 @@ public class RequestDaoImpl implements RequestDao {
         return list;
     }
 
-
+    @Override
+    public String updateRequest(String requestId, Map<String, Object> updateData) throws ExecutionException, InterruptedException {
+        Firestore dbFirestore = db.getFirestore();
+        DocumentReference docRef = dbFirestore.collection("requestPlaza").document(requestId);
+        ApiFuture<WriteResult> result = docRef.update(updateData);
+        return result.get().getUpdateTime().toString();
+    }
 }

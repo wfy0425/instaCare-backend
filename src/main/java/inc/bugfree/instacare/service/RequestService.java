@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.ExecutionException;
 
 
@@ -35,5 +36,9 @@ public class RequestService {
 
     public List<RequestBean> getAllOnGoingRequest() throws ExecutionException, InterruptedException {
         return requestDao.getAllOnGoingRequests();
+    }
+
+    public String updateRequest(String requestId, Map<String, Object> updateData) throws ExecutionException, InterruptedException {
+        return requestDao.updateRequest(requestId, updateData);
     }
 }

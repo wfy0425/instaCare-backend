@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.ExecutionException;
 
 @CrossOrigin(origins = "http://localhost:3000")
@@ -47,6 +48,11 @@ public class RequestController {
         return new ResponseBean(200, "OK",requestService.getAllOnGoingRequest());
     }
 
-
+    @PutMapping("/{id}")
+    @ResponseBody
+    public ResponseBean updateUser(@PathVariable String id, @RequestBody Map<String, Object> updateData ) throws Exception {
+        String ans = requestService.updateRequest(id,updateData);
+        return new ResponseBean(200, "OK", ans);
+    }
 
 }
