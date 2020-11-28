@@ -74,21 +74,12 @@ public class RequestDaoImpl implements RequestDao {
         List<RequestBean> list = new ArrayList<>();
         Firestore dbFirestore = db.getFirestore();
         CollectionReference requestPlaza = dbFirestore.collection("requestPlaza");
-        Query pastRequest = requestPlaza.whereEqualTo("status", 3);
+        Query pastRequest = requestPlaza.whereEqualTo("status", 3).whereEqualTo("seniorId", id).orderBy("createTime", Query.Direction.DESCENDING);
         ApiFuture<QuerySnapshot> apiFuture = pastRequest.get();
         for (QueryDocumentSnapshot document : apiFuture.get().getDocuments()) {
             RequestBean requestBean = document.toObject(RequestBean.class);
-            if (requestBean.getSeniorId().equals(id) || requestBean.getVolunteerId().equals(id))
-                list.add(requestBean);
+            list.add(requestBean);
         }
-
-        list.sort(new Comparator<RequestBean>() {
-            @Override
-            public int compare(RequestBean o1, RequestBean o2) {
-                return o2.getCreateTime().compareTo(o1.getCreateTime());
-            }
-        });
-
         return list;
     }
 
