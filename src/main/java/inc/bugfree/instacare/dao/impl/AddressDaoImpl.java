@@ -48,8 +48,8 @@ public class AddressDaoImpl implements AddressDao {
                 .collection("address");
         ApiFuture<QuerySnapshot> apiFuture = colRef.get();
         for (QueryDocumentSnapshot document : apiFuture.get().getDocuments()) {
-            AddressBean addressBean = document.toObject(AddressBean.class);
-            list.add(addressBean);
+            AddressBean requestBean = document.toObject(AddressBean.class);
+            list.add(requestBean);
         }
         return list;
     }
