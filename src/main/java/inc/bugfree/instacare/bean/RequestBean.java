@@ -24,7 +24,7 @@ public class RequestBean {
     private boolean neededPhysicalContact;
     private boolean maskedPhoneNumber;
     private Integer ratingId;
-    private Integer addressID;
+    private String addressID;
 
 
     public String getVolunteer() {
@@ -197,12 +197,12 @@ public class RequestBean {
     }
 
 //    @PropertyName("address_id")
-    public Integer getAddressID() {
+    public String getAddressID() {
         return addressID;
     }
 
 //    @PropertyName("address_id")
-    public void setAddressID(Integer addressID) {
+    public void setAddressID(String addressID) {
         this.addressID = addressID;
     }
 
