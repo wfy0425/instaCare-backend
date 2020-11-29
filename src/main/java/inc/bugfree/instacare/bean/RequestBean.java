@@ -1,5 +1,6 @@
 package inc.bugfree.instacare.bean;
 
+import com.google.cloud.firestore.GeoPoint;
 import com.google.cloud.firestore.annotation.PropertyName;
 
 import java.util.Date;
@@ -25,7 +26,15 @@ public class RequestBean {
     private boolean maskedPhoneNumber;
     private Integer ratingId;
     private String addressID;
+    private GeoPoint volunteerLocation;
 
+    public GeoPoint getVolunteerLocation() {
+        return volunteerLocation;
+    }
+
+    public void setVolunteerLocation(GeoPoint volunteerLocation) {
+        this.volunteerLocation = volunteerLocation;
+    }
 
     public String getVolunteer() {
         return volunteer;
@@ -205,6 +214,7 @@ public class RequestBean {
     public void setAddressID(String addressID) {
         this.addressID = addressID;
     }
+
 
     @Override
     public String toString() {
