@@ -14,7 +14,7 @@ public interface RequestDao {
 
     String saveRequest(RequestBean requestBean, String uid) throws ExecutionException, InterruptedException;
 
-    List<RequestBean> getRequestsByUid(String id) throws ExecutionException, InterruptedException;
+    List<RequestBean> getRequestsByUid(String id, Integer userType) throws ExecutionException, InterruptedException;
     List<RequestBean> getPastRequestsByUid(String id) throws ExecutionException, InterruptedException;
 
     List<RequestBean> getAllOnGoingRequests() throws ExecutionException, InterruptedException;
