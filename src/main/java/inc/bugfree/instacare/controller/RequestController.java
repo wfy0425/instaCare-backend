@@ -50,7 +50,7 @@ public class RequestController {
 
     @PutMapping("/{id}")
     @ResponseBody
-    public ResponseBean updateUser(@PathVariable String id, @RequestBody Map<String, Object> updateData ) throws Exception {
+    public ResponseBean updateRequest(@PathVariable String id, @RequestBody Map<String, Object> updateData ) throws Exception {
         String ans = requestService.updateRequest(id,updateData);
         return new ResponseBean(200, "OK", ans);
     }

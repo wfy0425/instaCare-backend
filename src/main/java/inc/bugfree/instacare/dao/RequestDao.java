@@ -20,4 +20,5 @@ public interface RequestDao {
     List<RequestBean> getAllOnGoingRequests() throws ExecutionException, InterruptedException;
 
     String updateRequest(String requestId, Map<String, Object> updateData) throws ExecutionException, InterruptedException;
+//    String cancelRequest(String requestId) throws ExecutionException, InterruptedException;
 }

@@ -32,8 +32,7 @@ public class RequestDaoImpl implements RequestDao {
         DocumentReference docRef = dbFirestore.collection("requestPlaza").document();
 //        dbFirestore.collection("requestPlaza").orderBy("create_time", Query.Direction.DESCENDING);
         requestBean.setId(docRef.getId());
-        requestBean.setSeniorId(uid);
-        requestBean.setStatus(1); // 1 is ongoing, 2 is taken, 3 is completed
+
         ApiFuture<WriteResult> result = docRef.create(requestBean);
 
         return result.get().getUpdateTime().toString();
@@ -44,7 +43,7 @@ public class RequestDaoImpl implements RequestDao {
         List<RequestBean> list = new ArrayList<>();
         Firestore dbFirestore = db.getFirestore();
         CollectionReference requestPlaza = dbFirestore.collection("requestPlaza");
-        Query ongoing = requestPlaza.whereLessThan("status", 3);
+        Query ongoing = requestPlaza.whereLessThan("status", 3).orderBy("status", Query.Direction.ASCENDING).orderBy("createTime", Query.Direction.DESCENDING);
 
         ApiFuture<QuerySnapshot> apiFuture = ongoing.get();
         for (QueryDocumentSnapshot document : apiFuture.get().getDocuments()) {
@@ -58,12 +57,6 @@ public class RequestDaoImpl implements RequestDao {
             }
 
         }
-        list.sort(new Comparator<RequestBean>() {
-            @Override
-            public int compare(RequestBean o1, RequestBean o2) {
-                return o2.getCreateTime().compareTo(o1.getCreateTime());
-            }
-        });
 
         return list;
     }
@@ -87,19 +80,12 @@ public class RequestDaoImpl implements RequestDao {
         List<RequestBean> list = new ArrayList<>();
         Firestore dbFirestore = db.getFirestore();
         CollectionReference requestPlaza = dbFirestore.collection("requestPlaza");
-        Query result = requestPlaza.whereEqualTo("status", 1);
+        Query result = requestPlaza.whereEqualTo("status", 1).orderBy("createTime", Query.Direction.DESCENDING);
         ApiFuture<QuerySnapshot> apiFuture = result.get();
         for (QueryDocumentSnapshot document : apiFuture.get().getDocuments()) {
             RequestBean requestBean = document.toObject(RequestBean.class);
             list.add(requestBean);
         }
-
-        list.sort(new Comparator<RequestBean>() {
-            @Override
-            public int compare(RequestBean o1, RequestBean o2) {
-                return o2.getCreateTime().compareTo(o1.getCreateTime());
-            }
-        });
 
         return list;
     }
@@ -111,4 +97,13 @@ public class RequestDaoImpl implements RequestDao {
         ApiFuture<WriteResult> result = docRef.update(updateData);
         return result.get().getUpdateTime().toString();
     }
+
+//    @Override
+//    public String cancelRequest(String requestId) throws ExecutionException, InterruptedException {
+//        Firestore dbFirestore = db.getFirestore();
+//        DocumentReference docRef = dbFirestore.collection("requestPlaza").document(requestId);
+//        ApiFuture<WriteResult> result = docRef.update(updateData);
+//        return result.get().getUpdateTime().toString();
+//    }
 }
+// 1 is ongoing, 2 is taken, 3 is completed, 4 is canceled

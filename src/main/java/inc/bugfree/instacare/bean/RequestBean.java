@@ -18,9 +18,9 @@ public class RequestBean {
     private List<String> tags;
     private Integer type;
     private Integer status;
-    private Date createTime;
-    private Date pendingTime;
-    private Date openTime;
+    private String createTime;
+    private String pendingTime;
+    private String openTime;
     private boolean neededPhysicalContact;
     private boolean maskedPhoneNumber;
     private Integer ratingId;
@@ -137,32 +137,32 @@ public class RequestBean {
     }
 
 //    @PropertyName("create_time")
-    public Date getCreateTime() {
+    public String getCreateTime() {
         return createTime;
     }
 
 //    @PropertyName("create_time")
-    public void setCreateTime(Date createTime) {
+    public void setCreateTime(String createTime) {
         this.createTime = createTime;
     }
 
 //    @PropertyName("pending_time")
-    public Date getPendingTime() {
+    public String getPendingTime() {
         return pendingTime;
     }
 
 //    @PropertyName("pending_time")
-    public void setPendingTime(Date pendingTime) {
+    public void setPendingTime(String pendingTime) {
         this.pendingTime = pendingTime;
     }
 
 //    @PropertyName("open_time")
-    public Date getOpenTime() {
+    public String getOpenTime() {
         return openTime;
     }
 
 //    @PropertyName("open_time")
-    public void setOpenTime(Date openTime) {
+    public void setOpenTime(String openTime) {
         this.openTime = openTime;
     }
 
