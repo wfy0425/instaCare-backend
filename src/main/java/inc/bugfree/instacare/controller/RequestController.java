@@ -55,4 +55,10 @@ public class RequestController {
         return new ResponseBean(200, "OK", ans);
     }
 
+    @DeleteMapping("/{id}")
+    public ResponseBean deletePastRequest(@PathVariable String id) throws Exception {
+        String ans = requestService.deletePastRequest(id);
+        return new ResponseBean(200, "OK", ans);
+    }
+
 }
