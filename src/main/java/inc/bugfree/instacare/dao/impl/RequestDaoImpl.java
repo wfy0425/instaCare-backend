@@ -105,6 +105,14 @@ public class RequestDaoImpl implements RequestDao {
         return result.get().getUpdateTime().toString();
     }
 
+    @Override
+    public String deletePastRequest(String requestId) throws ExecutionException, InterruptedException {
+        Firestore dbFirestore = db.getFirestore();
+        DocumentReference docRef = dbFirestore.collection("requestPlaza").document(requestId);
+        ApiFuture<WriteResult> result = docRef.delete();
+        return result.get().getUpdateTime().toString();
+    }
+
 //    @Override
 //    public String cancelRequest(String requestId) throws ExecutionException, InterruptedException {
 //        Firestore dbFirestore = db.getFirestore();

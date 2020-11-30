@@ -49,4 +49,8 @@ public class RequestService {
     public String updateRequest(String requestId, Map<String, Object> updateData) throws ExecutionException, InterruptedException {
         return requestDao.updateRequest(requestId, updateData);
     }
+
+    public String deletePastRequest(String requestId) throws ExecutionException, InterruptedException {
+        return requestDao.deletePastRequest(requestId);
+    }
 }
