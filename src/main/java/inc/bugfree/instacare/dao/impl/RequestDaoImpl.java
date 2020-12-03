@@ -75,7 +75,7 @@ public class RequestDaoImpl implements RequestDao {
         ApiFuture<QuerySnapshot> apiFuture = pastRequest.get();
         for (QueryDocumentSnapshot document : apiFuture.get().getDocuments()) {
             RequestBean requestBean = document.toObject(RequestBean.class);
-            if (requestBean.getVolunteerId().equals(id) || requestBean.getSeniorId().equals(id)){
+            if ((requestBean.getVolunteerId()!=null && requestBean.getVolunteerId().equals(id)) || requestBean.getSeniorId().equals(id)){
                 list.add(requestBean);
             }
         }
