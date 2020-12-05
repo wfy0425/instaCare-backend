@@ -53,4 +53,11 @@ public class RequestService {
     public String deletePastRequest(String requestId) throws ExecutionException, InterruptedException {
         return requestDao.deletePastRequest(requestId);
     }
+
+
+    public RequestBean getRequestsByRequestId(String id) throws ExecutionException, InterruptedException {
+        return requestDao.getRequestByRequestId(id);
+    }
+
+
 }

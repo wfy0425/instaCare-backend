@@ -83,6 +83,20 @@ public class RequestDaoImpl implements RequestDao {
     }
 
     @Override
+    public RequestBean getRequestByRequestId(String id) throws ExecutionException, InterruptedException {
+        Firestore dbFirestore = db.getFirestore();
+        DocumentReference request = dbFirestore.collection("requestPlaza").document(id);
+        ApiFuture<DocumentSnapshot> future = request.get();
+        DocumentSnapshot document = future.get();
+
+        if(document.exists()) {
+            return document.toObject(RequestBean.class);
+        }else {
+            return null;
+        }
+    }
+
+    @Override
     public List<RequestBean> getAllOnGoingRequests() throws ExecutionException, InterruptedException {
         List<RequestBean> list = new ArrayList<>();
         Firestore dbFirestore = db.getFirestore();

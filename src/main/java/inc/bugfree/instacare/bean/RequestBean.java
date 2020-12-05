@@ -25,8 +25,26 @@ public class RequestBean {
     private boolean neededPhysicalContact;
     private boolean maskedPhoneNumber;
     private Integer ratingId;
+    private Float rating;
+    private Integer numOfRating;
     private String addressID;
     private GeoPoint volunteerLocation;
+
+    public Integer getNumOfRating() {
+        return numOfRating;
+    }
+
+    public void setNumOfRating(Integer numOfRating) {
+        this.numOfRating = numOfRating;
+    }
+
+    public Float getRating() {
+        return rating;
+    }
+
+    public void setRating(Float rating) {
+        this.rating = rating;
+    }
 
     public GeoPoint getVolunteerLocation() {
         return volunteerLocation;
@@ -231,13 +249,16 @@ public class RequestBean {
                 ", tags=" + tags +
                 ", type=" + type +
                 ", status=" + status +
-                ", createTime=" + createTime +
-                ", pendingTime=" + pendingTime +
-                ", openTime=" + openTime +
+                ", createTime='" + createTime + '\'' +
+                ", pendingTime='" + pendingTime + '\'' +
+                ", openTime='" + openTime + '\'' +
                 ", neededPhysicalContact=" + neededPhysicalContact +
                 ", maskedPhoneNumber=" + maskedPhoneNumber +
                 ", ratingId=" + ratingId +
-                ", addressID=" + addressID +
+                ", rating=" + rating +
+                ", numOfRating=" + numOfRating +
+                ", addressID='" + addressID + '\'' +
+                ", volunteerLocation=" + volunteerLocation +
                 '}';
     }
 }
