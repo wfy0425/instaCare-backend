@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<project name="maven-antrun-" default="main"  >
-<target name="main">
-  <copy todir="D:\project\carego\target/classes/public">
-    <fileset dir="D:\project\carego/frontend/build"/>
-  </copy>
-</target>
-</project>
