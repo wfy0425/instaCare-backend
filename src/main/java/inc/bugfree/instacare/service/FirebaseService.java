@@ -15,7 +15,7 @@ public class FirebaseService {
 
     @PostConstruct
     public void initializer() throws Exception {
-        InputStream serviceAccount = this.getClass().getClassLoader().getResourceAsStream("./serviceAccountKey.json");
+        InputStream serviceAccount = this.getClass().getClassLoader().getResourceAsStream("serviceAccountKey.json");
         FirebaseOptions options = new FirebaseOptions.Builder()
                 .setCredentials(GoogleCredentials.fromStream(serviceAccount))
                 .setDatabaseUrl("https://cse110-elderly-care.firebaseio.com")
