@@ -10,8 +10,7 @@ import inc.bugfree.instacare.dao.UserDao;
 import inc.bugfree.instacare.service.CommentsService;
 import inc.bugfree.instacare.service.UserService;
 import org.apache.catalina.User;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -24,7 +23,7 @@ import java.util.Map;
 @RequestMapping("/users")
 public class UserController {
 
-    private static final Logger LOGGER = LogManager.getLogger(UserController.class);
+
 
     private UserService userService = null;
 

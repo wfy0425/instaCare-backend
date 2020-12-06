@@ -1,9 +1,6 @@
 package inc.bugfree.instacare.bean;
 
 import com.google.gson.annotations.SerializedName;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 import com.google.cloud.firestore.annotation.PropertyName;
 
 import java.util.Date;

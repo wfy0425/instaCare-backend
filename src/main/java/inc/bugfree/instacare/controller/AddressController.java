@@ -6,8 +6,7 @@ import inc.bugfree.instacare.bean.UserBean;
 import inc.bugfree.instacare.service.AddressService;
 import inc.bugfree.instacare.service.CommentsService;
 import inc.bugfree.instacare.service.UserService;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,7 +20,7 @@ import java.util.Map;
 @RequestMapping("/address")
 public class AddressController {
 
-    private static final Logger LOGGER = LogManager.getLogger(AddressController.class);
+
 
     private AddressService addressService = null;
 

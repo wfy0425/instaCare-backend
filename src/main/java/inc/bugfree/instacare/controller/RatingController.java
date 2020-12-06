@@ -5,8 +5,7 @@ import inc.bugfree.instacare.bean.RatingBean;
 import inc.bugfree.instacare.bean.ResponseBean;
 import inc.bugfree.instacare.service.AddressService;
 import inc.bugfree.instacare.service.RatingService;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,7 +19,6 @@ import java.util.Map;
 @RequestMapping("/rating")
 public class RatingController {
 
-    private static final Logger LOGGER = LogManager.getLogger(RatingController.class);
 
     private RatingService ratingService = null;
 
