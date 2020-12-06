@@ -4,13 +4,17 @@ import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.*;
 import inc.bugfree.instacare.bean.AddressBean;
 import inc.bugfree.instacare.bean.RatingBean;
+import inc.bugfree.instacare.bean.RequestBean;
 import inc.bugfree.instacare.bean.UserBean;
 import inc.bugfree.instacare.dao.RatingDao;
+import inc.bugfree.instacare.dao.RequestDao;
 import inc.bugfree.instacare.dao.UserDao;
 import inc.bugfree.instacare.service.FirebaseService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
@@ -19,6 +23,12 @@ import java.util.concurrent.ExecutionException;
 public class RatingDaoImpl implements RatingDao {
 
     private final FirebaseService db;
+    private RequestDao requestDao;
+
+    @Autowired
+    public void setRequestDao(RequestDao requestDao) {
+        this.requestDao = requestDao;
+    }
 
     public RatingDaoImpl(FirebaseService db) {
         this.db = db;
@@ -48,5 +58,23 @@ public class RatingDaoImpl implements RatingDao {
         ratingBean.setId(docRef.getId());
         ApiFuture<WriteResult> result = docRef.create(ratingBean);
         return docRef.getId();
+    }
+
+    @Override
+    public String insertRatingByRid(String requestId, RatingBean ratingBean) throws ExecutionException, InterruptedException {
+        Firestore dbFirestore = db.getFirestore();
+        RequestBean request = requestDao.getRequestByRequestId(requestId);
+        DocumentReference docRef = dbFirestore.collection("requestPlaza").document(requestId);
+        Map<String, Object> updateData = new HashMap<>();
+        if (request.getRating() == null || request.getNumOfRating() == null){
+            updateData.put("rating", ratingBean.getUserRating());
+            updateData.put("numOfRating", 1);
+        }else{
+            updateData.put("numOfRating", 2);
+            float result = (request.getRating()+ratingBean.getUserRating())/(request.getNumOfRating()+1);
+           updateData.put("rating", result);
+        }
+        ApiFuture<WriteResult> result = docRef.update(updateData);
+        return result.get().getUpdateTime().toString();
     }
 }

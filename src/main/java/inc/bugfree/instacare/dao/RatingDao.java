@@ -16,5 +16,5 @@ public interface RatingDao {
     String addRatingsByUserId(RatingBean ratingBean, String userId) throws InterruptedException, ExecutionException;
 
 
-
+    String insertRatingByRid(String requestId, RatingBean ratingBean) throws ExecutionException, InterruptedException;
 }

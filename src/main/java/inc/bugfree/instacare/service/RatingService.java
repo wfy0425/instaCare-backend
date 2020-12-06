@@ -53,4 +53,7 @@ public class RatingService {
     }
 
 
+    public String insertRatingByRid(String requestId, RatingBean ratingBean) throws ExecutionException, InterruptedException {
+        return ratingDao.insertRatingByRid(requestId, ratingBean);
+    }
 }
