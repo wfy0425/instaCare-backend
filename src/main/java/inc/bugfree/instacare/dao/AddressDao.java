@@ -17,4 +17,6 @@ public interface AddressDao {
 
     String insertAddress(AddressBean addressBean) throws InterruptedException, ExecutionException;
     String updateAddress(String userId, String addressId, Map<String, Object> updateData) throws ExecutionException, InterruptedException;
+
+    String deleteAddress(String userId, String addressId) throws ExecutionException, InterruptedException;
 }

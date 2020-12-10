@@ -59,4 +59,8 @@ public class AddressService {
     public String updateAddress(String userId, String addressId, Map<String, Object> updateData) throws ExecutionException, InterruptedException {
         return addressDao.updateAddress(userId, addressId, updateData);
     }
+
+    public String deleteAddress(String userId, String addressId) throws ExecutionException, InterruptedException {
+        return addressDao.deleteAddress(userId, addressId);
+    }
 }

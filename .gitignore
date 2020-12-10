@@ -32,3 +32,4 @@ hs_err_pid*
 /.idea/
 src/main/java/inc/bugfree/instacare/dao/.DS_Store
 .idea/modules.xml
+/frontend

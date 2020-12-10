@@ -14,7 +14,7 @@ import java.util.Map;
 
 //import inc.bugfree.instacare.service.UserService;
 
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin
 @RestController
 @RequestMapping("/rating")
 public class RatingController {

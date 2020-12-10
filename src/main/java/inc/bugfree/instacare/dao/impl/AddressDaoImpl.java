@@ -73,4 +73,13 @@ public class AddressDaoImpl implements AddressDao {
         ApiFuture<WriteResult> result = docRef.update(updateData);
         return result.get().getUpdateTime().toString();
     }
+
+    @Override
+    public String deleteAddress(String userId, String addressId) throws ExecutionException, InterruptedException {
+        Firestore dbFirestore = db.getFirestore();
+        DocumentReference docRef = dbFirestore.collection("users").document(userId)
+                .collection("address").document(addressId);
+        ApiFuture<WriteResult> result = docRef.delete();
+        return result.get().getUpdateTime().toString();
+    }
 }
