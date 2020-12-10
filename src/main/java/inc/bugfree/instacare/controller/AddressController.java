@@ -15,7 +15,7 @@ import java.util.Map;
 
 //import inc.bugfree.instacare.service.UserService;
 
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin
 @RestController
 @RequestMapping("/address")
 public class AddressController {
@@ -70,6 +70,13 @@ public class AddressController {
     @ResponseBody
     public ResponseBean updateAddress(@PathVariable String userId,@PathVariable String addressId, @RequestBody Map<String, Object> updateData ) throws Exception {
         String ans = addressService.updateAddress(userId,addressId,updateData);
+        return new ResponseBean(200, "OK", ans);
+    }
+
+    @DeleteMapping("/{userId}/{addressId}")
+    @ResponseBody
+    public ResponseBean deleteAddress(@PathVariable String userId,@PathVariable String addressId) throws Exception {
+        String ans = addressService.deleteAddress(userId,addressId);
         return new ResponseBean(200, "OK", ans);
     }
 
