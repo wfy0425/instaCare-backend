@@ -16,7 +16,7 @@ import java.util.concurrent.ExecutionException;
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
-@RequestMapping("/request")
+@RequestMapping("/api/request")
 public class RequestController {
 
 
