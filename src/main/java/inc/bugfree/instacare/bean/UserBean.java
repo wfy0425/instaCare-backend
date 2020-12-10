@@ -19,7 +19,7 @@ public class UserBean {
     @Deprecated
     private String password;
     private String avatar;
-    private Integer rating;
+    private Float rating;
     @Deprecated
     private List<Integer> requestList;
     private String description;
@@ -95,11 +95,11 @@ public class UserBean {
         this.avatar = avatar;
     }
 
-    public Integer getRating() {
+    public Float getRating() {
         return rating;
     }
 
-    public void setRating(Integer rating) {
+    public void setRating(Float rating) {
         this.rating = rating;
     }
 
