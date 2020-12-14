@@ -1,39 +1,25 @@
-# InstaCare -- Connect Seniors with Volunteers during Covid-19
+# InstaCare (Backend) -- Connect Seniors with Volunteers during Covid-19
 
-### Team Members:
+> An online platform that connects seniors and volunteers, helps to alleviate the situations when seniors are unable to do something on their own
 
-Shinuo Xu -- Project Manager
-Shuyang Miao -- Software Architect
-Tianpeng Fan -- Algorithm Specialist
-Jie Wang -- Database Specialist
-Qingxuan Cao -- UI Specialist
-Fengyuan Wu -- QA Lead
-Gan Kang -- Software Lead
-Zhenyi Xu -- Business Analyst
-Yueqian Ma -- Senior System Analyst
-Guangyu Yang -- Database Specialist
-
-### Introduction:
 The Covid-19 global pandemic has drastically changed the lifestyle of the majority of us. While most of us could simply stay at home and shop online, some seniors are experiencing a really tough time. They are the group of people that need most help during this pandemic. InstaCare, an online platform that connects seniors and volunteers, helps to alleviate the situations when seniors are unable to do something on their own, such as buying food or seeking medication. InstaCare helps both seniors and volunteers feel better, live better during the pandemic. As a registered senior, you can request for help, or an errand, on our plaza, and provide tips to volunteer when they accept your request. For registered volunteers, you can help seniors in need of your neighborhood.
 
-------------
-
-
-### Requirement
+![](sample_screenshot.png)
+## Requirement
 - Web browser supporting React.js and Material-UI (Chrome preferred). See following table for version requirements.
 
 - Browser:  
-IE (with version = 11)	  
-Edge(with version >= 14)	
-Firefox	(with version >= 52)
-Chrome	(with version >= 49)
-Safari (with version >= 10)
+IE (with version = 11)\
+Edge(with version >= 14)\
+Firefox	(with version >= 52)\
+Chrome	(with version >= 49)\
+Safari (with version >= 10)\
 Googlebot 
 
 - Internet connection
 - Gmail access
 
-### Login Credentials
+## Login Credentials
 
 Registered senior account: seniorTester1@gmail.com
 Password: iloveinstacare
@@ -48,14 +34,14 @@ You are very welcome to register new accounts to play with our application.
 ------------
 
 
-### Installation Instruction
+## Installation Instruction
 No installation required.
 
-### How to Run
+## How to Run
 1. Go to: https://instacare.today
 2. Use the account we provided to log in, or use your own email to sign up and login
 
-### Local Install Instruction
+## Local Install Instruction
 Our project can be run fully remotely. If you prefer to run it locally, here is the instruction:
 - Get the front-end and back-end code.
 - Use java IDE (intelliJ IDEA preferred) to open the back-end code as a project.
@@ -69,23 +55,23 @@ Our project can be run fully remotely. If you prefer to run it locally, here is 
 ------------
 
 
-#### Testing
-These are used to replace the placeholder in the test cases.
-SENIOR_ACCOUNT = seniorTester1@gmail.com
-VOLUN_ACCOUNT = voluntester1@gmail.com
-SIGNUP_ACCOUNT = instaCaresignup@gmail.com
-GOOGLE_ACCOUNT =  instacaresignupgoggle@gmail.com
-DEFAULT_PASSWORD = iloveinstacare
-NEW_PASSWORD = 12345678
-PHONE_NUMBER = 8584443333
-COMMENT_SENIOR = “Test comment from senior”
+## Testing
+These are used to replace the placeholder in the test cases.\
+SENIOR_ACCOUNT = seniorTester1@gmail.com\
+VOLUN_ACCOUNT = voluntester1@gmail.com\
+SIGNUP_ACCOUNT = instaCaresignup@gmail.com\
+GOOGLE_ACCOUNT =  instacaresignupgoggle@gmail.com\
+DEFAULT_PASSWORD = iloveinstacare\
+NEW_PASSWORD = 12345678\
+PHONE_NUMBER = 8584443333\
+COMMENT_SENIOR = “Test comment from senior”\
 COMMENT_VOLUN = “Test comment from volunteer”
 
 
 ------------
 
 
-#### Known Bugs
+## Known Bugs
 1. Uploading a new avatar sometimes results in no change and no error message. This error is related to the user's system version and browser. Try to either check the image’s size, try another image, wait a few seconds longer, or refresh the page. 
 2. Current version of application does not allow running applications on two tabs with different accounts in the same browser. If you want to test the behavior of multiple users, either log out and then log in with different accounts, or log in on another device.
 3. For users in regions with google access limited, our location sharing feature might not function correctly. Try to access our application with VPN on.
@@ -102,8 +88,24 @@ For more issues encountered during testing, contact us with the numbers below.
 ------------
 
 
-#### Technical Support:
-Shinuo Xu      - Project Manager          858-866-4264
+### Technical Support:
+Shinuo Xu      - Project Manager          858-866-4264\
 Tianpeng Fan - Algorithm Specialist   858-397-3043
+
+
+## Team Members:
+
+Shinuo Xu – Project Manager\
+Gan Kang – Software Lead\
+Fengyuan Wu – QA Lead\
+Tianpeng Fan – Algorithm Specialist\
+Shuyang Miao – Software Architect\
+Jie Wang – Database Specialist\
+Guangyu Yang – Database Specialist\
+Qingxuan Cao – UI Specialist\
+Yueqian Ma – Senior System Analyst\
+Zhenyi Xu – Business Analyst
+
+
 
 
